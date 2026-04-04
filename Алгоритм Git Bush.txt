@@ -1,0 +1,24 @@
+git init
+# 1. Проверяем, какие файлы есть
+git status
+
+# 2. Добавляем всё
+git add .
+
+# 3. Делаем коммит
+git commit -m "Первый коммит"
+
+# 4. Смотрим имя ветки
+git branch
+
+# 5. Отправляем (если ветка master)
+git push -u origin master
+
+# Или если хотите main (переименует и отправит)
+git branch -M main && git push -u origin main
+
+Коммит изменения
+
+git add .                    # Добавить все файлы
+git commit -m "Ваше сообщение" # Сделать коммит
+git push                     # Отправить на GitHub

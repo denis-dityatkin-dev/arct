@@ -1,0 +1,169 @@
+﻿// Подключение шрифтов только в самом верху
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,regular,500,600,700,800,900&display=swap");
+// @import url("../css/fonts.css");
+// @import url("../css/icons-fonts.css");
+// @import '../css/components.css';
+// @import "../css/anim.css";
+// @import "../scss/ibj.scss";
+// @import "../scss/adaptive-font";
+// $maxWidth: 1280;
+// @include adaptive-font(40, 24);(Использовать для адаптивного шрифта: 1 - мах знач, 2 - мин знач.)
+@import "../scss/adaptive-value.scss";
+// @include adaptive-value("padding", 40, 24, 0);(Использовать для адаптивного шрифта: 1 - мах знач, 2 - мин знач., 3 - режим)
+$maxWidth: 1920;
+$maxWidthContainer: 1200px;
+
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: clip;
+}
+
+.wrapper > main {
+	flex-grow: 1;
+}
+
+[class*="__container"] {
+	max-inline-size: 1200px;
+	margin-inline: auto;
+	padding-inline: 0.9375rem;
+}
+
+body {
+	transition: all 0.5s ease;
+	font-family: "Montserrat", sans-serif;
+	background-color: #fff;
+	color: #333;
+}
+
+.page {
+	&__container {
+		position: relative;
+	}
+
+	&__header {
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		padding-top: 20px;
+	}
+
+	&__title {
+		@include adaptive-value("font-size", 40, 24, 0);
+		@include adaptive-value("margin-bottom", 40, 0, 0);
+		line-height: 1.2;
+		font-weight: 700;
+	}
+
+	&__theme {
+		position: relative;
+		width: 40px;
+		height: 40px;
+		border: none;
+		background: transparent;
+		cursor: pointer;
+		transition: transform 0.3s ease;
+		
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+
+	&__reset {
+		position: absolute;
+		// top: 0;
+		// right: 0;
+		// width: 20px;
+		// height: 20px;
+		// border: none;
+		// border-radius: 50%;
+		// background-color: #666;
+		// color: #fff;
+		// font-size: 12px;
+		// cursor: pointer;
+		// display: flex;
+		// align-items: center;
+		// justify-content: center;
+		// opacity: 0;
+		// visibility: hidden;
+		// transition: all 0.3s ease;
+		
+		opacity: 0;
+		visibility: hidden;
+		&.active {
+			opacity: 1;
+			visibility: visible;
+		}
+		&::before {
+			content: "X";
+			position: absolute;
+			top: 0;
+			right: 0;
+			cursor: pointer;
+			width: 10px;
+			height: 10px;
+			font-size: 5px;
+			border-radius: 50%;
+			line-height: 10px;
+			color: #fff;
+			text-align: center;
+			background-color: #666;
+		}
+		
+		&.active {
+			opacity: 1;
+			visibility: visible;
+		}
+		
+		&:hover {
+			background-color: #888;
+		}
+	}
+
+	&__text {
+		line-height: 1.5;
+		
+		p {
+			&:not(:last-child) {
+				margin-bottom: 20px;
+			}
+		}
+	}
+}
+
+/* Темные темы */
+html.dark {
+	body {
+		background-color: #333;
+		color: #fff;
+	}
+	
+	.page__theme {
+		background: url("../images/sun.svg") center / 70% no-repeat;
+	}
+}
+
+/* Светлые темы */
+html.light {
+	body {
+		background-color: #fff;
+		color: #333;
+	}
+	
+	.page__theme {
+		background: url("../images/moon.svg") center / 70% no-repeat;
+	}
+}
+
+/* Системная тема по умолчанию */
+@media (prefers-color-scheme: dark) {
+	html:not(.light):not(.dark) body {
+		background-color: #333;
+		color: #fff;
+	}
+	
+	html:not(.light):not(.dark) .page__theme {
+		background: url("../images/sun.svg") center / 70% no-repeat;
+	}
+}

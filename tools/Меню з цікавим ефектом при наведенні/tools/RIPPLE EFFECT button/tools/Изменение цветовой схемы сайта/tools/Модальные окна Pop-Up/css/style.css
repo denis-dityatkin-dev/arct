@@ -1,0 +1,158 @@
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: clip;
+}
+
+[class*=__container] {
+  max-inline-size: 1070px;
+  margin-inline: auto;
+  padding-inline: 0.9375rem;
+}
+
+body {
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+  background-color: #383838;
+  font-size: 18px;
+  line-height: 180%;
+}
+body.lock {
+  overflow: hidden;
+}
+
+a {
+  color: crimson;
+  transition: color 0.5s;
+}
+a:hover {
+  color: aliceblue;
+}
+
+p:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  margin-bottom: 50px;
+}
+.header__container {
+  display: flex;
+  height: 80px;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: aliceblue;
+}
+.header__phone {
+  color: #fff;
+  transition: color 0.5s;
+}
+.header__phone:hover {
+  color: red;
+}
+
+.content {
+  padding-top: 130px;
+}
+.content__section {
+  margin-bottom: 50px;
+}
+.content__section_row {
+  margin: 0 -20px 50px;
+}
+@media (min-width: 991.98px) {
+  .content__section_row {
+    display: flex;
+  }
+}
+.content__body {
+  flex: 0 1 50%;
+  padding: 0 20px;
+}
+.content__title {
+  font-size: 40px;
+  margin-bottom: 0.5em;
+}
+.content__image {
+  display: block;
+  padding: 0 20px;
+  flex: 0 1 50%;
+}
+.content__image img {
+  max-width: 100%;
+}
+.content__subtitle {
+  font-size: 30px;
+  margin-bottom: 0.5em;
+}
+
+.popup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: all 0.8s;
+}
+.popup.open {
+  opacity: 1;
+  visibility: visible;
+}
+.popup.open .popup__content {
+  transform: perspective(600px) translate(0, 0) rotateX(0deg);
+  opacity: 1;
+}
+.popup__body {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 10px;
+}
+.popup__content {
+  background-color: #fff;
+  color: #000;
+  max-width: 800px;
+  padding: 30px;
+  position: relative;
+  opacity: 0;
+  transform: perspective(600px) translate(0, -100%) rotateX(45deg);
+  transition: all 0.8s;
+}
+.popup__content_image {
+  padding: 0;
+}
+.popup__image img {
+  max-width: 100%;
+}
+.popup__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  color: #000;
+}
+.popup__close:hover {
+  color: red;
+}
+.popup__title {
+  font-size: 40px;
+  margin-bottom: 1em;
+}

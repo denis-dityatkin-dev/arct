@@ -1,0 +1,105 @@
+﻿// Подключение шрифтов только в самом верху
+// @import url("../css/fonts.css");
+// @import url("../css/icons-fonts.css");
+// @import '../css/components.css';
+// @import "../css/anim.css";
+// @import "../scss/ibj.scss";
+// @import "../scss/adaptive-font";
+// $maxWidth: 1280;
+// @include adaptive-font(40, 24);(Использовать для адаптивного шрифта: 1 - мах знач, 2 - мин знач.)
+// @import "../scss/adaptive-value.scss";
+// @include adaptive-value("padding", 40, 24, 0);(Использовать для адаптивного шрифта: 1 - мах знач, 2 - мин знач., 3 - режим)
+// $maxWidth: 1920;
+// $maxWidthContainer: 1280;
+// max-width(1170px){}
+// max-width(991.98px){}
+// max-width(767.98px){}
+// max-width(479.98px){}
+// чтоб перевести в rem, нужно ..px / 16px
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: clip;
+	background-color: #383838;
+}
+// ==== Чтоб прибить футер к низу разрешаем main расширяться
+
+.wrapper > main {
+	flex-grow: 1;
+}
+
+// ===============Ограничивающий контейнер через селктор класса============
+[class*="__container"] {
+	max-inline-size: 1310px;
+	margin-inline: auto;
+	padding-inline: 0.9375rem;
+
+	// max-width: 1230px;
+	// margin: 0 auto;
+	// padding: 0 15px;
+	// box-sizing: border-box;
+
+	// ======== Стандартная адаптивная сетка ================================
+	// @media (max-width: 1199.98px) {
+	//   max-width: 970px;
+	// }
+	// @media (max-width: 991.98px) {
+	//   max-width: 750px;
+	// }
+	// @media (max-width: 767.98px) {
+	//   max-width: none;
+	// }
+}
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.page {
+}
+.menu {
+	max-width: 1200px;
+
+	&__list {
+	}
+
+	&__item {
+	}
+
+	&__link {
+		padding: 20px 30px;
+		display: block;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		color: #fff;
+		position: relative;
+		overflow: hidden;
+		// &:hover .hover,
+		// &:hover .hover__text{
+		// 	transform: translate3d(0, 0%, 0);
+		// }
+	}
+}
+// Стили эффекта
+.hover {
+	// transition: transform 0.5s;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	background-color: #fff;
+	will-change: transform;
+	overflow: hidden;
+	// transform: translate3d(0, 100%, 0);
+	&__text {
+		// transition: transform 0.5s;
+		color: #333;
+		padding: 20px 30px;
+		display: block;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		will-change: transform;
+		// transform: translate3d(0, -100%, 0);
+	}
+}

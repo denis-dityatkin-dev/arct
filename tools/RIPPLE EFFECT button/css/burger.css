@@ -1,0 +1,93 @@
+.icon-menu {
+  position: fixed;
+}
+@media (max-width: 767.98px) {
+  .icon-menu {
+    display: block;
+    position: relative;
+    flex: 0 0 30px;
+    width: 30px;
+    height: 18px;
+    cursor: pointer;
+    z-index: 10;
+  }
+  .icon-menu span, .icon-menu::before, .icon-menu::after {
+    content: "";
+    transition: all 0.5s ease 0s;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #181e4b;
+  }
+  .icon-menu::before {
+    top: 0;
+  }
+  .icon-menu::after {
+    bottom: 0;
+  }
+  .icon-menu span {
+    top: calc(55% - 1px);
+    transform: scale(1) translate(0px, -55%);
+  }
+}
+
+.menu-open .icon-menu::before {
+  transform: rotate(-45deg);
+  top: calc(50% - 1px);
+  background-color: #fff;
+}
+
+.menu-open .icon-menu::after {
+  transform: rotate(45deg);
+  bottom: calc(50% - 1px);
+  background-color: #fff;
+}
+
+.menu-open span {
+  left: 50%;
+  width: 0;
+  background-color: #fff;
+}
+
+@media (max-width: 767.98px) {
+  .menu {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .menu__body {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #4475f2;
+    padding: 100px 15px 50px 15px;
+    transition: left 0.5s ease 0s;
+    overflow: auto;
+    z-index: 4;
+  }
+  .menu__body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: -100%;
+    height: 60px;
+    background-color: #1050f0;
+    transition: left 0.5s ease 0s;
+    z-index: 4;
+  }
+}
+
+.menu-open .menu__body {
+  left: 0;
+}
+.menu-open .menu__body::before {
+  left: 0;
+}
+
+.menu-open body {
+  overflow: hidden;
+}

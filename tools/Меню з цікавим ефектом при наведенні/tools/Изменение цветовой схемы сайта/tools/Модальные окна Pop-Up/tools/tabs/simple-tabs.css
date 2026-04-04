@@ -1,0 +1,7 @@
+// Чтоб скрывался неактивный таб
+.item-tabs {
+	display: none;
+	&.active {
+		display: block;
+	}
+}

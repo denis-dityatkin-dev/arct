@@ -1,0 +1,97 @@
+﻿// Подключение шрифтов только в самом верху
+// @import url("../css/fonts.css");
+// @import url("../css/icons-fonts.css");
+// @import '../css/components.css';
+// @import "../css/anim.css";
+// @import "../scss/ibj.scss";
+// @import "../scss/adaptive-font";
+// $maxWidth: 1280;
+// @include adaptive-font(40, 24);(Использовать для адаптивного шрифта: 1 - мах знач, 2 - мин знач.)
+// @import "../scss/adaptive-value.scss";
+// @include adaptive-value("padding", 40, 24, 0);(Использовать для адаптивного шрифта: 1 - мах знач, 2 - мин знач., 3 - режим)
+// $maxWidth: 1920;
+// $maxWidthContainer: 1280;
+// max-width(1170px){}
+// max-width(991.98px){}
+// max-width(767.98px){}
+// max-width(479.98px){}
+// чтоб перевести в rem, нужно ..px / 16px
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: clip; // работает с position: sticky;
+		background-color: #2f3b29;
+	// min-width: 320px;
+	// max-width: 1920px;
+	//block-size: 100%;
+}
+// ==== Чтоб прибить футер к низу разрешаем main расширяться
+
+.wrapper > main {
+	flex-grow: 1;
+}
+
+// ===============Ограничивающий контейнер через селктор класса============
+[class*="__container"] {
+	max-inline-size: 1310px;
+	margin-inline: auto;
+	padding-inline: 0.9375rem;
+
+
+	// max-width: 1230px;
+	// margin: 0 auto;
+	// padding: 0 15px;
+	// box-sizing: border-box;
+
+	// ======== Стандартная адаптивная сетка ================================
+	// @media (max-width: 1199.98px) {
+	//   max-width: 970px;
+	// }
+	// @media (max-width: 991.98px) {
+	//   max-width: 750px;
+	// }
+	// @media (max-width: 767.98px) {
+	//   max-width: none;
+	// }
+}
+
+.page {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&__item {
+	}
+}
+.button {
+	background-color: green;
+	color: azure;
+	padding: 20px 40px;
+	text-transform: uppercase;
+	font-weight: 700;
+	border-radius: 5px;
+	position: relative;
+	letter-spacing: 1px;
+	transition: background-color 0.5s;
+	overflow: hidden;
+	&:hover{
+		background-color: #68805d;
+	}
+}
+.ripple {
+	position: absolute;
+	border-radius: 50%;
+	background-color: rgba(255,255,255, 0.3);
+	border: 1px solid rgba(255,255,255, 0.5);
+	animation: button-circle 3s ease forwards;
+}
+@keyframes button-circle {
+	0%{
+		transform: scale(0);
+	}
+	100%{
+		transform: scale(20);
+		opacity: 0;
+	}
+}

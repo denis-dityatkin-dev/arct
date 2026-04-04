@@ -1,0 +1,39 @@
+.container {
+  overflow: hidden;
+}
+
+.filterDiv {
+  float: left;
+  background-color: #2196F3;
+  color: #ffffff;
+  width: 100px;
+  line-height: 100px;
+  text-align: center;
+  margin: 2px;
+  display: none; /* Скрыто по умолчанию */
+}
+
+/* В класс "show" добавляется к отфильтрованные элементы */
+.show {
+  display: block;
+}
+
+/* Стиль кнопок */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+/* Добавить светло-серый фон на наведении курсора мыши */
+.btn:hover {
+  background-color: #ddd;
+}
+
+/* Добавить темный фон для активной кнопки */
+.btn.active {
+  background-color: #666;
+  color: white;
+}

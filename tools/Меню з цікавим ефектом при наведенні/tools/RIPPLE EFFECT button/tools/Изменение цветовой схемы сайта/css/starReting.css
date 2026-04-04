@@ -1,0 +1,139 @@
+@charset "UTF-8";
+.wrapper {
+  min-width: 320px;
+  max-width: 1366px;
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 10px;
+  box-sizing: content-box;
+}
+
+h1 {
+  font-size: 30px;
+  margin: 0 0 30px 0;
+}
+
+.form_margin {
+  margin: 0 0 30px 0;
+}
+.form__item {
+  margin: 0 0 30px 0;
+}
+.form__label {
+  margin: 0 0 10px 0;
+}
+.form__btn {
+  height: 50px;
+  background-color: #77608d;
+  padding: 0 30px;
+  color: aliceblue;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.simple-rating {
+  position: relative;
+  font-size: 40px;
+  display: inline-block;
+}
+.simple-rating::before {
+  content: "★★★★★";
+  display: block;
+}
+.simple-rating__items {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row-reverse;
+  overflow: hidden;
+}
+.simple-rating__item {
+  position: absolute;
+  width: 0%;
+  height: 0%;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+}
+.simple-rating__item:checked, .simple-rating__item:checked ~ .simple-rating__label {
+  color: #ffd300;
+}
+.simple-rating__label {
+  flex: 0 0 20%;
+  height: 100%;
+  cursor: pointer;
+  color: black;
+}
+.simple-rating__label::before {
+  content: "★";
+  transition: color 0.3s ease 0s;
+}
+.simple-rating__label:hover, .simple-rating__label:hover ~ .simple-rating__label, .simple-rating__label:checked ~ .simple-rating__label:hover {
+  color: #ffef9f;
+}
+
+.rating {
+  display: flex;
+  align-items: flex-end;
+  font-size: 40px;
+  line-height: 0.75;
+  transition: opacity 0.3s ease 0s;
+}
+.rating.rating_sending {
+  opacity: 0.2;
+}
+.rating.rating_set .rating__active, .rating.rating_set .rating__item {
+  cursor: pointer;
+}
+.rating__body {
+  position: relative;
+}
+.rating__body::before {
+  content: "★★★★★";
+  display: block;
+}
+.rating__active {
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+.rating__active::before {
+  content: "★★★★★";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  color: #ffd300;
+}
+.rating__items {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.rating__item {
+  flex: 0 0 20%;
+  height: 100%;
+  opacity: 0;
+}
+.rating__value {
+  font-size: 50%;
+  line-height: 1;
+  padding: 0 0 0 10px;
+}

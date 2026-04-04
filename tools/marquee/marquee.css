@@ -1,0 +1,72 @@
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  // position: relative;
+  width: 100%;
+}
+
+.marquee__container {
+  display: flex;
+  animation: marquee 20s linear infinite;
+  will-change: transform;
+  min-width: 200%; /* Важно: минимум 200% ширины */
+}
+
+.name-about__item {
+  flex-shrink: 0;
+  padding: 0 50px; /* Отступ между элементами */
+}
+
+/* Для WebKit браузеров */
+@-webkit-keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Сдвигаем на 50%, а не 100% */
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Оптимизация */
+.marquee__container {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* ============ marquee-2 =========== */
+.marquee-2 {
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-2__container {
+  display: flex;
+  white-space: nowrap;
+  /* Анимация будет добавлена JS */
+}
+
+.marquee-2__item {
+  flex-shrink: 0;
+  white-space: nowrap;
+  /* Отступы через JS */
+}
+
+/* Базовые стили для анимации */
+@keyframes smoothMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-25%);
+  }
+}
