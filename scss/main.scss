@@ -20,8 +20,9 @@
 // чтоб перевести в rem, нужно ..px / 16px
 :root {
   --font-family: "Rubik", sans-serif;
-  --second-family: "Prata", sans-serif;
+  --second-family: "Prata", serif;
 	--text-primary: #5b5b5b;
+	--text-dark: #201f1f;
 }
 // :root {
 // 	--text-default: #101010;
@@ -47,7 +48,7 @@
 
 // ===============Ограничивающий контейнер через селктор класса============
 [class*="__container"] {
-	max-inline-size: 1310px;
+	max-inline-size: 113.125rem;
 	margin-inline: auto;
 	padding-inline: 0.9375rem;
 
