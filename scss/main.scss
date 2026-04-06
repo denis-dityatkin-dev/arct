@@ -1,4 +1,6 @@
 ﻿// Подключение шрифтов только в самом верху
+@import url("https://fonts.googleapis.com/css?family=Prata:regular&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Rubik:300,regular,500,600,700,800,900,italic&display=swap");
 // @import url("../css/fonts.css");
 // @import url("../css/icons-fonts.css");
 // @import '../css/components/components.css';
@@ -16,6 +18,11 @@
 // max-width(767.98px){}
 // max-width(479.98px){}
 // чтоб перевести в rem, нужно ..px / 16px
+:root {
+  --font-family: "Rubik", sans-serif;
+  --second-family: "Prata", sans-serif;
+	--text-primary: #5b5b5b;
+}
 // :root {
 // 	--text-default: #101010;
 // 	--text-primary: #db574d;
@@ -61,3 +68,7 @@
 	// }
 }
 
+body{
+	font-family: var(--font-family);
+	color: var(--text-primary);
+}
