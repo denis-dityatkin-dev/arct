@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Prata:regular&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Rubik:300,regular,500,600,700,800,900,italic&display=swap");
+@import '../css/components/font-icons.css';
 :root {
   --font-family: "Rubik", sans-serif;
   --second-family: "Prata", serif;
