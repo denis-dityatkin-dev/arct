@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/main.css">
   <title>Arct</title>
@@ -12,7 +13,34 @@
 	<div class="wrapper">
 		<header class="header">
 			<div class="header__container ">
-
+				<a href="#" class="header__logo">
+					<img src="./images/logo.svg" alt="logo">
+				 </a>
+				 <div class="header__menu menu">
+						<nav id="menu" class="menu__body">
+							<ul class="menu__list">
+								<li class="menu__item">                                        
+									<a data-goto=".wrapper" href="#" class="menu__link">Home</a>
+								</li>
+								<li class="menu__item">
+									<a data-goto=".about" href="#" class="menu__link">About</a>
+								</li>
+								<li class="menu__item">
+									<a data-goto=".services" href="#" class="menu__link">Services</a>
+								</li>
+								<li class="menu__item">
+									<a data-goto=".portfolio" href="#" class="menu__link">Portfolio</a>
+								</li>
+								<li class="menu__item">
+									<a data-goto=".contact" href="#" class="menu__link">Contact</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+					<div class="header__actions">
+						<a href="#" class="header__button icon-search"></a>
+						<button type="button" class="menu__icon icon-menu"><span></span></button>
+					</div>
 			</div>
 		</header>
 		<main class="page"></main>
@@ -21,6 +49,7 @@
   <!-- <script src="js/script.js"></script> -->
 	<!-- <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 	<script src="js/components/slider_swiper.js"></script> -->
+	<script src="js/components/burger.js"></script>
 	<!-- <script src="js/components/anim.js"></script> -->
 </body>
 </html>

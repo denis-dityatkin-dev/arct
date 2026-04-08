@@ -3,26 +3,28 @@
 @import url("https://fonts.googleapis.com/css?family=Rubik:300,regular,500,600,700,800,900,italic&display=swap");
 // @import url("../css/fonts.css");
 // @import url("../css/icons-fonts.css");
-@import '../css/components/font-icons.css';
+@import "../css/components/font-icons.css";
+@import "../css/components/burger.css";
 // @import "../css/components/anim.css";
 // @import "../scss/components/ibj.scss";
 // @import "../scss/components/adaptive-font";
 // $maxWidth: 1280;
 // @include adaptive-font(40, 24);(Использовать для адаптивного шрифта: 1 - мах знач, 2 - мин знач.)
-// @import "../scss/adaptive-value.scss";
+@import "../scss/adaptive-value.scss";
 // @include adaptive-value("padding", 40, 24, 0);(Использовать для адаптивного шрифта: 1 - мах знач, 2 - мин знач., 3 - режим)
-// $maxWidth: 1920;
-// $maxWidthContainer: 1280;
+$maxWidth: 1920;
+$maxWidthContainer: 1810;
 // max-width(1170px){}
 // max-width(991.98px){}
 // max-width(767.98px){}
 // max-width(479.98px){}
 // чтоб перевести в rem, нужно ..px / 16px
 :root {
-  --font-family: "Rubik", sans-serif;
-  --second-family: "Prata", serif;
+	--font-family: "Rubik", sans-serif;
+	--second-family: "Prata", serif;
 	--text-primary: #5b5b5b;
 	--text-dark: #201f1f;
+	--text--link: #939393;
 }
 // :root {
 // 	--text-default: #101010;
@@ -69,7 +71,61 @@
 	// }
 }
 
-body{
+body {
 	font-family: var(--font-family);
 	color: var(--text-primary);
+}
+
+// =============== header ==========
+
+.header {
+	position: fixed;
+	@include adaptive-value("top", 67, 40, 0);
+	left: 0;
+	width: 100%;
+	&__container {
+		display: flex;
+		align-items: center;
+		@include adaptive-value("gap", 96, 20, 0);
+	}
+
+	&__logo {
+	}
+
+	&__menu {
+		display: flex;
+		flex-grow: 1;
+	}
+
+	&__actions {
+	}
+
+	&__button {
+	}
+}
+
+.menu {
+	&__body {
+	}
+
+	&__list {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		@include adaptive-value("gap", 40, 20, 0);
+	}
+
+	&__item {
+	}
+
+	&__link {
+		letter-spacing: 0.02em;
+		text-transform: capitalize;
+		 color: var(--text--link);
+		 transition: color 0.5s;
+		 &:hover{
+			color: var(--text-dark);
+		 }
+		
+	}
 }
