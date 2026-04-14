@@ -1,13 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Prata:regular&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Rubik:300,regular,500,600,700,800,900,italic&display=swap");
-@import "../css/components/font-icons.css";
-@import "../css/components/burger.css";
+@import "../css/font-icons.css";
+@import "../scss/components/burger.css";
 :root {
   --font-family: "Rubik", sans-serif;
   --second-family: "Prata", serif;
   --text-primary: #5b5b5b;
   --text-dark: #201f1f;
   --text--link: #939393;
+  --background-burger: #f0f0f0;
 }
 
 .wrapper {
@@ -34,7 +35,7 @@ body {
 
 .header {
   position: fixed;
-  top: calc(40px + 27 * ((100vw - 320px) / 1600));
+  top: calc(5px + 62 * ((100vw - 320px) / 1600));
   left: 0;
   width: 100%;
 }
@@ -47,11 +48,24 @@ body {
   display: flex;
   flex-grow: 1;
 }
+.header__actions {
+  display: flex;
+  gap: 1.5rem;
+}
 .menu__list {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: calc(20px + 20 * ((100vw - 320px) / 1600));
+  -moz-column-gap: calc(20px + 23 * ((100vw - 320px) / 1600));
+       column-gap: calc(20px + 23 * ((100vw - 320px) / 1600));
+  row-gap: 0.3125rem;
+}
+@media (max-width: 47.9988rem) {
+  .menu__list {
+    flex-direction: column;
+    align-items: end;
+    row-gap: 1.25rem;
+  }
 }
 .menu__link {
   letter-spacing: 0.02em;
@@ -61,4 +75,9 @@ body {
 }
 .menu__link:hover {
   color: var(--text-dark);
+}
+@media (max-width: 47.9988rem) {
+  .menu__link {
+    font-size: 2rem;
+  }
 }

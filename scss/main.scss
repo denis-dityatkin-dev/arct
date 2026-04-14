@@ -3,8 +3,8 @@
 @import url("https://fonts.googleapis.com/css?family=Rubik:300,regular,500,600,700,800,900,italic&display=swap");
 // @import url("../css/fonts.css");
 // @import url("../css/icons-fonts.css");
-@import "../css/components/font-icons.css";
-@import "../css/components/burger.css";
+@import "../css/font-icons.css";
+@import "../scss/components/burger.css";
 // @import "../css/components/anim.css";
 // @import "../scss/components/ibj.scss";
 // @import "../scss/components/adaptive-font";
@@ -25,6 +25,7 @@ $maxWidthContainer: 1810;
 	--text-primary: #5b5b5b;
 	--text-dark: #201f1f;
 	--text--link: #939393;
+	--background-burger: #f0f0f0;
 }
 // :root {
 // 	--text-default: #101010;
@@ -80,7 +81,7 @@ body {
 
 .header {
 	position: fixed;
-	@include adaptive-value("top", 67, 40, 0);
+	@include adaptive-value("top", 67, 5, 0);
 	left: 0;
 	width: 100%;
 	&__container {
@@ -98,9 +99,12 @@ body {
 	}
 
 	&__actions {
+		display: flex;
+		gap: 1.5rem;
 	}
 
 	&__button {
+
 	}
 }
 
@@ -112,7 +116,13 @@ body {
 		display: flex;
 		align-items: center;
 		flex-wrap: wrap;
-		@include adaptive-value("gap", 40, 20, 0);
+		@include adaptive-value("column-gap", 43, 20, 0);
+		row-gap: 0.3125rem;
+		@media (max-width: 47.9988rem) {
+			flex-direction: column;
+			align-items: end;
+			row-gap: 1.25rem;
+		}
 	}
 
 	&__item {
@@ -121,11 +131,13 @@ body {
 	&__link {
 		letter-spacing: 0.02em;
 		text-transform: capitalize;
-		 color: var(--text--link);
-		 transition: color 0.5s;
-		 &:hover{
+		color: var(--text--link);
+		transition: color 0.5s;
+		&:hover {
 			color: var(--text-dark);
-		 }
-		
+		}
+		@media (max-width: 47.9988rem) {
+			font-size: 2rem;
+		}
 	}
 }
