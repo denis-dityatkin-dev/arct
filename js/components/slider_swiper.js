@@ -4,8 +4,8 @@ let myImageSlider = new
 	Swiper(".swiper-container", {
 		// Стрелки
 		navigation: {
-			nextEl: ".portfolio__arrow_right",
-			prevEl: ".portfolio__arrow_left",
+			nextEl: ".swiper-button-next",
+			prevEl: ".swiper-button-prev",
 		},
 		// Включение/отключение перетаскивания на пк
 		simulateTouch: true,
@@ -33,7 +33,7 @@ let myImageSlider = new
 			pageUpDown: true,
 		},
 		// Количество слайдов для показа
-		slidesPerView: 3,
+		slidesPerView: 1,
 
 		// Отключение функционала, если слайдов меньше, чем нужно
 		watchOverflow: true,
@@ -61,25 +61,25 @@ let myImageSlider = new
 		// Скорость
 		speed: 800,
 		// Брейк поинты (Адаптивность) ширины экрана
-		breakpoints: {
-			320: {
-				slidesPerView: 1,
-				spaceBetween: 10,
-				// autoHeight: true,
-			},
-			480: {
-				slidesPerView: 2,
-				spaceBetween: 20,
-			},
-			992: {
-				slidesPerView: 3,
-				spaceBetween: 20,
-			},
-			1200: {
-				slidesPerView: 3,
-				spaceBetween: 56,
-			},
-		},
+		// breakpoints: {
+		// 	320: {
+		// 		slidesPerView: 1,
+		// 		spaceBetween: 10,
+		// 		// autoHeight: true,
+		// 	},
+		// 	480: {
+		// 		slidesPerView: 2,
+		// 		spaceBetween: 20,
+		// 	},
+		// 	992: {
+		// 		slidesPerView: 3,
+		// 		spaceBetween: 20,
+		// 	},
+		// 	1200: {
+		// 		slidesPerView: 3,
+		// 		spaceBetween: 56,
+		// 	},
+		// },
 		// Автовысота
 		// autoHeight: true,
 		// Навигация
