@@ -98,18 +98,20 @@ body {
 .hero {
   position: relative;
 }
+.hero__slider {
+  touch-action: pan-y pinch-zoom;
+}
+.slide-hero {
+  position: relative;
+}
 .slide-hero__content {
   padding-top: calc(80px + 148 * ((100vw - 320px) / 1600));
   padding-bottom: calc(30px + 93 * ((100vw - 320px) / 1600));
+  padding-left: calc(50px + 170 * ((100vw - 320px) / 1600));
   min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-}
-@media (min-width: 61.9988rem) {
-  .slide-hero__content {
-    padding-left: calc(50px + 170 * ((100vw - 320px) / 1600));
-  }
 }
 .slide-hero__title, .slide-hero__body {
   position: relative;
@@ -189,6 +191,11 @@ body {
   top: 0;
   height: 100%;
 }
+@media (min-width: 61.9988rem) {
+  .slide-hero__picture {
+    max-width: 66%;
+  }
+}
 .slide-hero__image {
   width: 100%;
   height: 100%;
@@ -205,6 +212,9 @@ body {
   pointer-events: none;
 }
 .controlls-hero__container {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   padding-top: calc(80px + 148 * ((100vw - 320px) / 1600));
   padding-bottom: calc(30px + 93 * ((100vw - 320px) / 1600));
   min-height: 100svh;
@@ -228,7 +238,7 @@ body {
   gap: 1rem;
 }
 .controlls-hero__arrow {
-  width: 3.75rem;
+  width: calc(40px + 20 * ((100vw - 320px) / 1600));
   aspect-ratio: 1;
   border-radius: 50%;
   border: 0.0625rem solid #515050;
@@ -245,9 +255,13 @@ body {
   content: "\e906";
   font-size: 24px;
 }
-.controlls-hero__arrow:hover {
+.controlls-hero__arrow:not([disabled]):hover {
   background-color: var(--text-dark);
   color: #fff;
+}
+.controlls-hero__arrow.swiper-button-disabled {
+  color: var(--text-lite-gray2);
+  border: 0.0625rem solid var(--text-lite-gray2);
 }
 
 .bullets-hero {
@@ -257,11 +271,13 @@ body {
   gap: 1.625rem;
 }
 .bullets-hero__item {
+  cursor: pointer;
   font-size: 1.25rem;
   line-height: 1.294;
   letter-spacing: 0.02em;
   text-transform: capitalize;
   color: var(--text-lite-gray2);
+  transition: color 0.5s;
   counter-increment: item;
 }
 .bullets-hero__item::before {
@@ -270,7 +286,19 @@ body {
 .bullets-hero__item--active {
   color: var(--text-gold);
 }
+.bullets-hero__item:hover {
+  color: var(--text-gold);
+}
 
 .swiper-button-prev {
   rotate: -180deg;
+}
+
+.swiper-wrapper {
+  display: flex !important;
+}
+
+.swiper-slide {
+  flex-shrink: 0 !important;
+  width: 100% !important;
 }

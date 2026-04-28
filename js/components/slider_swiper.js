@@ -81,7 +81,7 @@ let myImageSlider = new
 		// 	},
 		// },
 		// Автовысота
-		// autoHeight: true,
+		autoHeight: true,
 		// Навигация
 		// Буллеты,текущее положение. прогрессбар
 		pagination: {
