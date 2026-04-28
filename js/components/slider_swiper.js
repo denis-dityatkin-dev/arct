@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 // Инициализация Swiper
 let myImageSlider = new
 	Swiper(".swiper-container", {
@@ -85,10 +85,13 @@ let myImageSlider = new
 		// Навигация
 		// Буллеты,текущее положение. прогрессбар
 		pagination: {
-		  el: ".swiper-pagination",
+			el: ".bullets-hero",
+			bulletClass: 'bullets-hero__item',
+			bulletActiveClass: 'bullets-hero__item--active',
+			// Буллеты
+			clickable: true,
+		},
 
-		  // Буллеты
-		  clickable: true,
 		//   // Динамические буллеты
 		//   dynamicBullets: true,
 		//   // Кастомные буллеты
@@ -132,7 +135,7 @@ let myImageSlider = new
 		//   eventsTarget: ".swiper-container",
 		// },
 
-		
+
 
 
 		// Свободный режим
@@ -206,7 +209,7 @@ let myImageSlider = new
 		//   slidehadows: true,
 		// },
 
-		
+
 
 		// Отключить предзагрузку картинок
 		// preloadImages: false,
@@ -252,7 +255,7 @@ let myImageSlider = new
 		// // Обновить свайпер при изменении дочерних элементов слайдера
 		// observeSlideChildren: true,
 
-		
+
 	});
 
  // Слайдер в слайдере

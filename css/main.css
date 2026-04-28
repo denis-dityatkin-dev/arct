@@ -9,6 +9,8 @@
   --text-dark: #201f1f;
   --text-link: #939393;
   --text-lite-gray: #888;
+  --text-lite-gray2: #cfcfcf;
+  --text-gold: #91795c;
   --background-burger: #f0f0f0;
 }
 
@@ -195,6 +197,8 @@ body {
 }
 
 .controlls-hero {
+  padding-top: calc(80px + 148 * ((100vw - 320px) / 1600));
+  padding-bottom: calc(30px + 93 * ((100vw - 320px) / 1600));
   position: absolute;
   width: 100%;
   height: 100%;
@@ -205,7 +209,14 @@ body {
 .controlls-hero__container {
   min-height: 100%;
   display: flex;
+  align-items: flex-start;
   flex-direction: column;
+  justify-content: flex-end;
+}
+.controlls-hero__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 .controlls-hero__arrows {
@@ -234,6 +245,27 @@ body {
 .controlls-hero__arrow:hover {
   background-color: var(--text-dark);
   color: #fff;
+}
+
+.bullets-hero {
+  counter-reset: item;
+  display: flex;
+  flex-direction: column;
+  gap: 1.625rem;
+}
+.bullets-hero__item {
+  font-size: 1.25rem;
+  line-height: 1.294;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  color: var(--text-lite-gray2);
+  counter-increment: item;
+}
+.bullets-hero__item::before {
+  content: counter(item, decimal-leading-zero);
+}
+.bullets-hero__item--active {
+  color: var(--text-gold);
 }
 
 .swiper-button-prev {

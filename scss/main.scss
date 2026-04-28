@@ -26,6 +26,8 @@ $maxWidthContainer: 1810;
 	--text-dark: #201f1f;
 	--text-link: #939393;
 	--text-lite-gray: #888;
+	--text-lite-gray2: #cfcfcf;
+	--text-gold: #91795c;
 	--background-burger: #f0f0f0;
 }
 // :root {
@@ -277,6 +279,8 @@ body {
 .hero-controlls {
 }
 .controlls-hero {
+	@include adaptive-value("padding-top", 228, 80, 0);
+		@include adaptive-value("padding-bottom", 123, 30, 0);
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -286,7 +290,14 @@ body {
 	&__container {
 		min-height: 100%;
 		display: flex;
+		align-items: flex-start;
 		flex-direction: column;
+		justify-content: flex-end;
+	}
+	&__body {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		justify-content: center;
 	}
 	&__bullets {
@@ -316,13 +327,34 @@ body {
 			content: "\e906";
 			font-size: 24px;
 		}
-		&:hover{
+		&:hover {
 			background-color: var(--text-dark);
 			color: #fff;
 		}
 	}
 }
 .bullets-hero {
+	counter-reset: item;
+
+	display: flex;
+	flex-direction: column;
+	gap: 1.625rem;
+	&__item {
+		font-size: 1.25rem;
+		line-height: 1.294;
+		letter-spacing: 0.02em;
+		text-transform: capitalize;
+		color: var(--text-lite-gray2);
+
+		counter-increment: item;
+		&::before {
+			content: counter(item, decimal-leading-zero);
+		}
+
+		&--active {
+			color: var(--text-gold);
+		}
+	}
 }
 .swiper-button-prev {
 	rotate: -180deg;
