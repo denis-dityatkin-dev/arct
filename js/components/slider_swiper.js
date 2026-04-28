@@ -84,11 +84,11 @@ let myImageSlider = new
 		// autoHeight: true,
 		// Навигация
 		// Буллеты,текущее положение. прогрессбар
-		// pagination: {
-		//   el: ".swiper-pagination",
+		pagination: {
+		  el: ".swiper-pagination",
 
-		//   // Буллеты
-		//   clickable: true,
+		  // Буллеты
+		  clickable: true,
 		//   // Динамические буллеты
 		//   dynamicBullets: true,
 		//   // Кастомные буллеты

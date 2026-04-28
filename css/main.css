@@ -208,6 +208,11 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+.controlls-hero__arrows {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 .controlls-hero__arrow {
   width: 3.75rem;
   aspect-ratio: 1;
@@ -216,12 +221,21 @@ body {
   font-weight: 500;
   color: #515050;
   pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s;
 }
 .controlls-hero__arrow::after {
   font-family: "icomoon";
   content: "\e906";
-  font-size: 39px;
-  line-height: 1.294;
-  letter-spacing: 0.02em;
-  text-transform: capitalize;
+  font-size: 24px;
+}
+.controlls-hero__arrow:hover {
+  background-color: var(--text-dark);
+  color: #fff;
+}
+
+.swiper-button-prev {
+  rotate: -180deg;
 }
