@@ -2,6 +2,7 @@
 // Инициализация Swiper
 let myImageSlider = new
 	Swiper(".swiper-container", {
+		
 		// Стрелки
 		navigation: {
 			nextEl: ".swiper-button-next",
@@ -92,8 +93,8 @@ let myImageSlider = new
 			clickable: true,
 		},
 
-		//   // Динамические буллеты
-		//   dynamicBullets: true,
+		  // Динамические буллеты
+		  dynamicBullets: true,
 		//   // Кастомные буллеты
 		//   renderBullet: function (index, className) {
 		//     return '<span class="' + className + '">' + (index + 1) + '</span>';

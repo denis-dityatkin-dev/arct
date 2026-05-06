@@ -182,8 +182,8 @@ body {
 		@include adaptive-value("padding-bottom", 123, 30, 0);
 
 		@media (min-width: 47.9988rem) {
-			@include adaptive-value("padding-right", 115, 80, 0);
-			@include adaptive-value("padding-left", 220, 50, 0);
+			@include adaptive-value("padding-right", 115, 40, 0);
+			@include adaptive-value("padding-left", 220, 40, 0);
 		}
 		@media (max-width: 47.9988rem) {
 			padding-bottom: 0;
@@ -227,7 +227,7 @@ body {
 		@media (max-width: 47.9988rem) {
 			flex-direction: column;
 			align-items: stretch;
-			margin-bottom: 100px;
+			margin-bottom: 120px;
 		}
 	}
 
@@ -243,9 +243,6 @@ body {
 		}
 		@media (min-width: 61.9988rem) {
 			max-width: 45.6875rem;
-		}
-		@media (max-width: 47.9988rem) {
-			margin-inline: 0.625rem;
 		}
 	}
 
@@ -331,8 +328,7 @@ body {
 		}
 	}
 	&__body {
-		// @media (min-width: 47.9988rem) {
-		// }
+
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
@@ -397,12 +393,12 @@ body {
 	@media (max-width: 47.9988rem) {
 		// display: none;
 		display: flex;
-		@include adaptive-value("padding-block", 40, 20, 0);
+		@include adaptive-value("padding-block", 40, 15, 0);
 		flex-direction: row;
 		justify-content: center;
+		gap: 1.25rem;
 	}
 	counter-reset: item;
-
 	display: flex;
 	flex-direction: column;
 	gap: 1.625rem;
@@ -443,22 +439,4 @@ body {
 }
 .swiper-pagination {
 }
-// .swiper{
-// 	overflow: hidden;
-// }
-// .swiper-initialized{
-// 	touch-action: pan-y;
-// }
-// .swiper-vertical{
-// 	.swiper-wrapper{
-// 		flex-direction: column;
-// 	}
-// }
-// .swiper-wrapper{
-// 	width: 100%;
-// 	height: 100%;
-// 	box-sizing: content-box;
-// 	display: flex;
-// }
-// .swiper-slide {
-// }
+
