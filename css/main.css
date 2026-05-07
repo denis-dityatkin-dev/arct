@@ -2,6 +2,8 @@
 @import url("https://fonts.googleapis.com/css?family=Rubik:300,regular,500,600,700,800,900,italic&display=swap");
 @import "../css/font-icons.css";
 @import "../scss/components/burger.css";
+@import "../scss/components/burger.css";
+@import "../scss/components.css";
 :root {
   --font-family: "Rubik", sans-serif;
   --second-family: "Prata", serif;
@@ -178,27 +180,6 @@ body {
     max-width: 45.6875rem;
   }
 }
-.slide-hero__link {
-  line-height: 1.684;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--text-dark);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row-reverse;
-  flex-shrink: 0;
-  gap: 0.4375rem;
-  align-items: center;
-  padding-block: calc(15px + 5 * ((100vw - 320px) / 1600));
-  padding-inline: calc(15px + 20 * ((100vw - 320px) / 1600));
-  border: 0.0625rem solid #b8b8b8;
-  transition: all 0.5s;
-}
-.slide-hero__link:hover {
-  color: #b8b8b8;
-  background-color: var(--text-dark);
-}
 .slide-hero__picture {
   position: absolute;
   right: 0;
@@ -362,4 +343,39 @@ body {
 .swiper-slide {
   flex-shrink: 0 !important;
   width: 100% !important;
+}
+
+.about {
+  padding-block: calc(40px + 200 * ((100vw - 320px) / 1600));
+}
+.about__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.875rem;
+}
+@media (max-width: 47.9988rem) {
+  .about__container {
+    flex-direction: column;
+  }
+}
+.about__title {
+  flex: 1 1 50%;
+}
+.about__content {
+  flex: 1 1 50%;
+  display: grid;
+  gap: calc(20px + 16 * ((100vw - 320px) / 1600));
+}
+.about__big-text {
+  font-size: calc(18px + 12 * ((100vw - 320px) / 1600));
+  line-height: 1.724;
+  color: #363535;
+}
+.about__text {
+  line-height: 2.124;
+  letter-spacing: 0.02em;
+}
+.about__text p:not(:last-child) {
+  margin-bottom: calc(10px + 30 * ((100vw - 320px) / 1600));
 }

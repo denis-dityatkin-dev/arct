@@ -1,0 +1,128 @@
+// Подключение шрифтов только в самом верху
+@import url("https://fonts.googleapis.com/css?family=Prata:regular&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Rubik:300,regular,500,600,700,800,900,italic&display=swap");
+// @import url("../css/fonts.css");
+// @import url("../css/icons-fonts.css");
+@import "../css/font-icons.css";
+@import "../scss/components/burger.css";
+@import "../scss/components/burger.css";
+// @import "../css/components/anim.css";
+// @import "../scss/components/ibj.scss";
+// @import "../scss/components/adaptive-font";
+// $maxWidth: 1280;
+// @include adaptive-font(40, 24);(Использовать для адаптивного шрифта: 1 - мах знач, 2 - мин знач.)
+@import "../scss/adaptive-value.scss";
+// @include adaptive-value("padding", 40, 24, 0);(Использовать для адаптивного шрифта: 1 - мах знач, 2 - мин знач., 3 - режим)
+$maxWidth: 1920;
+$maxWidthContainer: 1810;
+// max-width(1170px){}
+// max-width(991.98px){}
+// max-width(767.98px){}
+// max-width(479.98px){}
+// чтоб перевести в rem, нужно ..px / 16px
+:root {
+	--font-family: "Rubik", sans-serif;
+	--second-family: "Prata", serif;
+	--text-primary: #5b5b5b;
+	--text-dark: #201f1f;
+	--text-link: #939393;
+	--text-lite-gray: #888;
+	--text-lite-gray2: #cfcfcf;
+	--text-gold: #91795c;
+	--background-burger: #f0f0f0;
+}
+// :root {
+// 	--text-default: #101010;
+// 	--text-primary: #db574d;
+// 	--text-muted: rgba(16, 16, 16, 0.6);
+// 	--text-inverse: #fff;
+// }
+// color: var(--text-default);
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: clip; // работает с position: sticky;
+	// min-width: 320px;
+	// max-width: 1920px;
+	//block-size: 100%;
+}
+// ==== Чтоб прибить футер к низу разрешаем main расширяться
+
+.wrapper > main {
+	flex-grow: 1;
+}
+
+// ===============Ограничивающий контейнер через селктор класса============
+[class*="__container"] {
+	max-inline-size: 113.125rem;
+	margin-inline: auto;
+	padding-inline: 0.9375rem;
+
+	// max-width: 1230px;
+	// margin: 0 auto;
+	// padding: 0 15px;
+	// box-sizing: border-box;
+
+	// ======== Стандартная адаптивная сетка ================================
+	// @media (max-width: 1199.98px) {
+	//   max-width: 970px;
+	// }
+	// @media (max-width: 991.98px) {
+	//   max-width: 750px;
+	// }
+	// @media (max-width: 767.98px) {
+	//   max-width: none;
+	// }
+}
+
+body {
+	font-family: var(--font-family);
+	color: var(--text-primary);
+}
+
+.button {
+	line-height: 1.684;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--text-dark);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row-reverse;
+	flex-shrink: 0;
+	gap: 0.4375rem;
+	align-items: center;
+	@include adaptive-value("padding-block", 20, 15, 0);
+	@include adaptive-value("padding-inline", 35, 15, 0);
+	border: 0.0625rem solid #b8b8b8;
+	transition: all 0.5s;
+	&:hover {
+		color: #b8b8b8;
+		background-color: var(--text-dark);
+	}
+	&::before {
+	}
+}
+.title {
+	@media (min-width: 47.9988rem) {
+		position: sticky;
+		top: 7.5rem;
+	}
+
+	font-family: var(--second-family);
+	@include adaptive-value("font-size", 49, 32, 0);
+	line-height: 1.294;
+	letter-spacing: -0.02em;
+	text-transform: capitalize;
+	color: var(--text-dark);
+	display: flex;
+	align-items: center;
+	gap: 1.5625rem;
+	&::after {
+		content: "";
+		background-color: var(--text-gold);
+		height: 0.1875rem;
+		width: 1.75rem;
+	}
+}

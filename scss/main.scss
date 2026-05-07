@@ -5,6 +5,8 @@
 // @import url("../css/icons-fonts.css");
 @import "../css/font-icons.css";
 @import "../scss/components/burger.css";
+@import "../scss/components/burger.css";
+@import "../scss/components.css";
 // @import "../css/components/anim.css";
 // @import "../scss/components/ibj.scss";
 // @import "../scss/components/adaptive-font";
@@ -247,27 +249,6 @@ body {
 	}
 
 	&__link {
-		line-height: 1.684;
-		letter-spacing: 0.04em;
-		text-transform: uppercase;
-		color: var(--text-dark);
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: row-reverse;
-		flex-shrink: 0;
-		gap: 0.4375rem;
-		align-items: center;
-		@include adaptive-value("padding-block", 20, 15, 0);
-		@include adaptive-value("padding-inline", 35, 15, 0);
-		border: 0.0625rem solid #b8b8b8;
-		transition: all 0.5s;
-		&:hover {
-			color: #b8b8b8;
-			background-color: var(--text-dark);
-		}
-		&::before {
-		}
 	}
 
 	&__picture {
@@ -299,14 +280,14 @@ body {
 	left: 0;
 	pointer-events: none;
 	@media (max-width: 47.9988rem) {
-    position: absolute;   // вернули absolute
-    width: 100%;
-    height: 100%;
-    bottom: 0;
-    left: 0;
-    margin-top: 0;        // убираем лишний отступ
-    pointer-events: none; // как на десктопе
-  }
+		position: absolute; // вернули absolute
+		width: 100%;
+		height: 100%;
+		bottom: 0;
+		left: 0;
+		margin-top: 0; // убираем лишний отступ
+		pointer-events: none; // как на десктопе
+	}
 	&__container {
 		@include adaptive-value("padding-top", 228, 80, 0);
 		@include adaptive-value("padding-bottom", 123, 30, 0);
@@ -319,16 +300,15 @@ body {
 			top: 0;
 		}
 		@media (max-width: 47.9988rem) {
-			position: static;     // отключаем sticky
-			min-height: auto;     // отменяем 100svh
-			height: 100%;         // чтобы занять всю высоту абсолютного родителя
+			position: static; // отключаем sticky
+			min-height: auto; // отменяем 100svh
+			height: 100%; // чтобы занять всю высоту абсолютного родителя
 			justify-content: flex-end;
-			padding-top: 0;       // убираем лишний верхний отступ
+			padding-top: 0; // убираем лишний верхний отступ
 			// padding-bottom оставляем как есть (30px от adaptive-value) – он даст отступ снизу
 		}
 	}
 	&__body {
-
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
@@ -440,3 +420,49 @@ body {
 .swiper-pagination {
 }
 
+// =============
+
+.about {
+	@include adaptive-value("padding-block", 240, 40, 0);
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 1.875rem;
+		@media (max-width: 47.9988rem) {
+			flex-direction: column;
+		}
+	}
+
+	&__title {
+		flex: 1 1 50%;
+	}
+
+	&__content {
+		flex: 1 1 50%;
+		display: grid;
+		@include adaptive-value("gap", 36, 20, 0);
+	}
+
+	&__big-text {
+		@include adaptive-value("font-size", 30, 18, 0);
+		line-height: 1.724;
+		color: #363535;
+	}
+
+	&__text {
+		line-height: 2.124;
+		letter-spacing: 0.02em;
+		p {
+			&:not(:last-child) {
+				@include adaptive-value("margin-bottom", 40, 10, 0);
+			}
+		}
+		// &:not(:last-child){
+		// 	@include adaptive-value("margin-bottom", 40, 20, 0);
+		// }
+	}
+
+	&__button {
+	}
+}
