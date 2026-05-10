@@ -26,6 +26,7 @@ $maxWidthContainer: 1810;
 	--second-family: "Prata", serif;
 	--text-primary: #5b5b5b;
 	--text-dark: #201f1f;
+	--text-dark2: #363535;
 	--text-link: #939393;
 	--text-lite-gray: #888;
 	--text-lite-gray2: #cfcfcf;
@@ -86,15 +87,17 @@ body {
 
 .header {
 	position: fixed;
-	@include adaptive-value("top", 67, 5, 0);
+	@include adaptive-value("top", 67, 10, 0);
 	left: 0;
 	width: 100%;
 	z-index: 50;
 	background-color: rgba(255, 255, 255, 0.8);
+	transition: all 0.5s;
 	&__container {
 		display: flex;
 		align-items: center;
-		@include adaptive-value("gap", 96, 20, 0);
+		@include adaptive-value("gap", 96, 30, 0);
+		height: 4.375rem;
 	}
 
 	&__logo {
@@ -425,29 +428,39 @@ body {
 .about {
 	@include adaptive-value("padding-block", 240, 40, 0);
 	&__container {
+	}
+	&__inner-container {
+		@include adaptive-value("padding-inline", 110, 0, 0);
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-start;
-		gap: 1.875rem;
+		gap: 1.25rem;
 		@media (max-width: 47.9988rem) {
 			flex-direction: column;
 		}
+		@media (min-width: 47.9988rem) {
+			> * {
+				flex-grow: 1;
+				flex-basis: 12.5rem;
+			}
+		}
 	}
-
 	&__title {
-		flex: 1 1 50%;
+		@media (min-width: 47.9988rem) {
+			position: sticky;
+			top: 7.5rem;
+		}
 	}
 
 	&__content {
-		flex: 1 1 50%;
 		display: grid;
-		@include adaptive-value("gap", 36, 20, 0);
+		@include adaptive-value("row-gap", 36, 20, 0);
 	}
 
 	&__big-text {
 		@include adaptive-value("font-size", 30, 18, 0);
 		line-height: 1.724;
-		color: #363535;
+		color: var(--text-dark2);
 	}
 
 	&__text {
@@ -455,7 +468,7 @@ body {
 		letter-spacing: 0.02em;
 		p {
 			&:not(:last-child) {
-				@include adaptive-value("margin-bottom", 40, 10, 0);
+				@include adaptive-value("margin-bottom", 23, 10, 0);
 			}
 		}
 		// &:not(:last-child){
@@ -464,5 +477,8 @@ body {
 	}
 
 	&__button {
+		@media (min-width: 47.9988rem) {
+			justify-self: start;
+		}
 	}
 }

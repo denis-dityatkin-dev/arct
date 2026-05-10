@@ -9,6 +9,7 @@
   --second-family: "Prata", serif;
   --text-primary: #5b5b5b;
   --text-dark: #201f1f;
+  --text-dark2: #363535;
   --text-link: #939393;
   --text-lite-gray: #888;
   --text-lite-gray2: #cfcfcf;
@@ -40,16 +41,18 @@ body {
 
 .header {
   position: fixed;
-  top: calc(5px + 62 * ((100vw - 320px) / 1600));
+  top: calc(10px + 57 * ((100vw - 320px) / 1600));
   left: 0;
   width: 100%;
   z-index: 50;
   background-color: rgba(255, 255, 255, 0.8);
+  transition: all 0.5s;
 }
 .header__container {
   display: flex;
   align-items: center;
-  gap: calc(20px + 76 * ((100vw - 320px) / 1600));
+  gap: calc(30px + 66 * ((100vw - 320px) / 1600));
+  height: 4.375rem;
 }
 .header__logo {
   position: relative;
@@ -348,34 +351,49 @@ body {
 .about {
   padding-block: calc(40px + 200 * ((100vw - 320px) / 1600));
 }
-.about__container {
+.about__inner-container {
+  padding-inline: calc(0px + 110 * ((100vw - 320px) / 1600));
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 1.875rem;
+  gap: 1.25rem;
 }
 @media (max-width: 47.9988rem) {
-  .about__container {
+  .about__inner-container {
     flex-direction: column;
   }
 }
-.about__title {
-  flex: 1 1 50%;
+@media (min-width: 47.9988rem) {
+  .about__inner-container > * {
+    flex-grow: 1;
+    flex-basis: 12.5rem;
+  }
+}
+@media (min-width: 47.9988rem) {
+  .about__title {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 7.5rem;
+  }
 }
 .about__content {
-  flex: 1 1 50%;
   display: grid;
-  gap: calc(20px + 16 * ((100vw - 320px) / 1600));
+  row-gap: calc(20px + 16 * ((100vw - 320px) / 1600));
 }
 .about__big-text {
   font-size: calc(18px + 12 * ((100vw - 320px) / 1600));
   line-height: 1.724;
-  color: #363535;
+  color: var(--text-dark2);
 }
 .about__text {
   line-height: 2.124;
   letter-spacing: 0.02em;
 }
 .about__text p:not(:last-child) {
-  margin-bottom: calc(10px + 30 * ((100vw - 320px) / 1600));
+  margin-bottom: calc(10px + 13 * ((100vw - 320px) / 1600));
+}
+@media (min-width: 47.9988rem) {
+  .about__button {
+    justify-self: start;
+  }
 }

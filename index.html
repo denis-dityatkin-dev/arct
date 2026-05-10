@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div class="wrapper">
-		<header class="header">
+		<header id="navbar" class="header">
 			<div class="header__container ">
 				<a data-goto=".wrapper" href="#" class="header__logo">
 					<img src="./images/logo.svg" alt="logo">
@@ -114,14 +114,16 @@
 			</section>
 			<section class="about">
 				<div class="about__container">
-					<h2 class="about__title title">about me</h2>
-					<div class="about__content">
-						<div class="about__big-text">Viverra senectus lorem ipsum dolor sit adui ultricies dolor. Varius nibh velit pellentesque sapi viverra euen, sapien non senectus odio neque dignissim.</div>
-						<div class="about__text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et mauris sed faucibus amet lobortis netus vehicula pretium. Rhoncus laoreet feugiat orci rutrum risus gravida ultricies lacinia faucibus. Mauris ut id scelerisque quis hac luctus nunc. Quis at maecenas velit non. Sit amet, consectetur adipiscing elit. Et mauris sed faucibus amet lobortis netus vehicula pretium. Rhoncus laoreet feugiat orci rutrum risus gravida ultricies lacinia faucibus. Mauris ut id scelerisque quis hac luctus nunc. Quis at maecenas velit non. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							<p>Et mauris sed faucibus amet lobortis netus vehicula pretium. Rhoncus laoreet feugiat orci rutrum risus gravida ultricies lacinia faucibus. Mauris ut id scelerisque quis hac luctus nunc. Quis at maecenas velit non.</p>
+					<div class="about__inner-container">
+						<h2 class="about__title title">about me</h2>
+						<div class="about__content">
+							<div class="about__big-text">Viverra senectus lorem ipsum dolor sit adui ultricies dolor. Varius nibh velit pellentesque sapi viverra euen, sapien non senectus odio neque dignissim.</div>
+							<div class="about__text">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et mauris sed faucibus amet lobortis netus vehicula pretium. Rhoncus laoreet feugiat orci rutrum risus gravida ultricies lacinia faucibus. Mauris ut id scelerisque quis hac luctus nunc. Quis at maecenas velit non. Sit amet, consectetur adipiscing elit. Et mauris sed faucibus amet lobortis netus vehicula pretium. Rhoncus laoreet feugiat orci rutrum risus gravida ultricies lacinia faucibus. Mauris ut id scelerisque quis hac luctus nunc. Quis at maecenas velit non. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+								<p>Et mauris sed faucibus amet lobortis netus vehicula pretium. Rhoncus laoreet feugiat orci rutrum risus gravida ultricies lacinia faucibus. Mauris ut id scelerisque quis hac luctus nunc. Quis at maecenas velit non.</p>
+							</div>
+							<a href="#" class="about__button button icon-arrow-right">View my works</a>
 						</div>
-						<a href="#" class="about__button button icon-arrow-right">View my works</a>
 					</div>
 				</div>
 			</section>
@@ -132,6 +134,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 	<script src="js/components/slider_swiper.js"></script>
 	<script src="js/components/burger.js"></script>
+	<script src="js/components/float-head.js"></script>
 	<!-- <script src="js/components/anim.js"></script> -->
 </body>
 </html>

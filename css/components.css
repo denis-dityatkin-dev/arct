@@ -69,13 +69,6 @@ body {
   align-items: center;
   gap: 1.5625rem;
 }
-@media (min-width: 47.9988rem) {
-  .title {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 7.5rem;
-  }
-}
 .title::after {
   content: "";
   background-color: var(--text-gold);
