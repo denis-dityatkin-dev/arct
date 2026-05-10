@@ -34,6 +34,10 @@
   padding-inline: 0.9375rem;
 }
 
+[class*=__inner-container] {
+  padding-inline: calc(0px + 110 * ((100vw - 320px) / 1600));
+}
+
 body {
   font-family: var(--font-family);
   color: var(--text-primary);
@@ -352,7 +356,6 @@ body {
   padding-block: calc(40px + 200 * ((100vw - 320px) / 1600));
 }
 .about__inner-container {
-  padding-inline: calc(0px + 110 * ((100vw - 320px) / 1600));
   display: flex;
   justify-content: space-between;
   align-items: flex-start;

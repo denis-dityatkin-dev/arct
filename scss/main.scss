@@ -77,7 +77,10 @@ $maxWidthContainer: 1810;
 	//   max-width: none;
 	// }
 }
-
+[class*="__inner-container"]{
+	@include adaptive-value("padding-inline", 110, 0, 0);
+}
+// =======================
 body {
 	font-family: var(--font-family);
 	color: var(--text-primary);
@@ -423,14 +426,14 @@ body {
 .swiper-pagination {
 }
 
-// =============
+// ============= about ==============
 
 .about {
 	@include adaptive-value("padding-block", 240, 40, 0);
 	&__container {
 	}
 	&__inner-container {
-		@include adaptive-value("padding-inline", 110, 0, 0);
+
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-start;
@@ -482,3 +485,5 @@ body {
 		}
 	}
 }
+
+// ============
