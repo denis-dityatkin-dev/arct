@@ -7,6 +7,7 @@
 @import "../scss/components/burger.css";
 @import "../scss/components/burger.css";
 @import "../scss/components.css";
+@import "../css/gallery.css";
 // @import "../css/components/anim.css";
 // @import "../scss/components/ibj.scss";
 // @import "../scss/components/adaptive-font";
@@ -495,6 +496,7 @@ body {
 	}
 
 	&__header {
+		@include adaptive-value("margin-bottom", 144, 20, 0);
 	}
 
 	&__gallery {
@@ -502,18 +504,20 @@ body {
 }
 .header-portfolio {
 	&__inner-container {
+		// display: grid;
+		// grid-template-columns: repeat(2, 1fr);
 		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		gap: 20px;
-		@media (max-width: 991.9808px) {
+		align-items: flex-start;
+		gap: 1.25rem;
+		@media (max-width: 61.9988rem) {
 			flex-direction: column;
 		}
 	}
 
 	&__body {
 		@media (min-width: 991.9808px) {
-			max-width: 28.75rem;
+			flex-basis: 12.5rem;
+			flex-grow: 1;
 		}
 	}
 
@@ -526,16 +530,34 @@ body {
 	&__text {
 		line-height: 2.124;
 		letter-spacing: 0.02em;
+		@media (min-width: 61.9988rem) {
+			max-width: 28.75rem;
+		}
+		&:not(::last-child){
+			margin-bottom: 0.625rem;
+		}
 	}
 
 	&__filter {
+		position: relative;
+		@media (min-width: 991.9808px) {
+			flex-basis: 12.5rem;
+			flex-grow: 1;
+			position: sticky;
+			top: 0;
+			padding-top: 3.875rem;
+		}
 	}
 }
 .filter-portfolio {
 	display: flex;
-	@include adaptive-value("gap", 49, 10, 0);
-	justify-content: center;
+	@include adaptive-value("column-gap", 49, 10, 0);
+	row-gap: 0.3125rem;
 	flex-wrap: wrap;
+
+	@media (max-width: 61.9988rem) {
+		justify-content: center;
+	}
 	&__item {
 	}
 
@@ -549,5 +571,38 @@ body {
 		&:hover {
 			color: var(--text-gold);
 		}
+		&--active {
+			color: var(--text-gold);
+		}
+	}
+}
+
+// =========== gallery-portfolio ======
+
+.gallery-portfolio {
+	display: grid;
+	@include adaptive-value("gap", 64, 10, 0);
+	grid-template-columns: repeat(4, 1fr);
+	@media (max-width: 61.9988rem) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	&__item {
+		&:nth-child(10n + 1),
+		&:nth-child(10n + 8){
+			grid-column: span 2;
+			grid-row: span 2;
+		}
+	}
+
+	&__link {
+		display: block;
+		height: 100%;
+	}
+
+	&__image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 	}
 }
