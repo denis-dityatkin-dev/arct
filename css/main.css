@@ -9,6 +9,7 @@
   --font-family: "Rubik", sans-serif;
   --second-family: "Prata", serif;
   --text-primary: #5b5b5b;
+  --text-primary-2: #818181;
   --text-dark: #201f1f;
   --text-dark2: #363535;
   --text-link: #939393;
@@ -17,6 +18,8 @@
   --text-lite-gray2: #cfcfcf;
   --text-gold: #91795c;
   --background-burger: #f0f0f0;
+  --background-item: #fff;
+  --border-item: #f9f9f9;
 }
 
 .wrapper {
@@ -420,7 +423,7 @@ body {
     flex-direction: column;
   }
 }
-@media (min-width: 991.9808px) {
+@media (min-width: 61.9988rem) {
   .header-portfolio__body {
     flex-basis: 12.5rem;
     flex-grow: 1;
@@ -502,4 +505,74 @@ body {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.services {
+  margin-bottom: calc(40px + 200 * ((100vw - 320px) / 1600));
+}
+.services__inner-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+@media (max-width: 61.9988rem) {
+  .services__inner-container {
+    flex-direction: column;
+  }
+}
+.services__body {
+  display: grid;
+  gap: calc(10px + 24 * ((100vw - 320px) / 1600));
+}
+@media (min-width: 47.9988rem) {
+  .services__body {
+    flex-basis: 50%;
+  }
+}
+.services__text {
+  line-height: 2.124;
+  letter-spacing: 0.02em;
+}
+@media (min-width: 61.9988rem) {
+  .services__text {
+    max-width: 28.75rem;
+  }
+}
+.services__items {
+  display: grid;
+  grid-template-columns: repeat(auto);
+  gap: calc(10px + 42 * ((100vw - 320px) / 1600));
+}
+@media (min-width: 47.9988rem) {
+  .services__items {
+    flex-basis: 50%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.services__item {
+  box-shadow: 0 1.3125rem 2.75rem 0 rgba(0, 0, 0, 0.04);
+  background-color: var(--background-item);
+  border: 1px solid var(--border-item);
+  padding: calc(5px + 45 * ((100vw - 320px) / 1600));
+}
+
+.item-services {
+  display: grid;
+  gap: 0.375rem;
+}
+.item-services__title {
+  font-weight: 500;
+  font-size: calc(18px + 4 * ((100vw - 320px) / 1600));
+  line-height: 2.124;
+  text-transform: capitalize;
+  color: var(--text-dark2);
+}
+.item-services__text {
+  line-height: 2.124;
+  letter-spacing: 0.02em;
+  color: var(--text-primary-2);
+}
+.item-services__text p:not(:last-child) {
+  margin-bottom: 0.625rem;
 }
