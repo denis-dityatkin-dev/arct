@@ -1,8 +1,5 @@
 (function() {
-	// Находим все ссылки галереи
 	const links = document.querySelectorAll('.gallery-portfolio__link');
-	
-	// Собираем массив изображений из data-атрибута
 	const items = Array.from(links).filter(link => link.hasAttribute('data-gallery-src')).map(link => ({
 			src: link.getAttribute('data-gallery-src'),
 			element: link
@@ -14,8 +11,13 @@
 	let modal = null;
 	let modalImg = null;
 	let isOpen = false;
+	let isTransitioning = false; // блокировка на время анимации
+	
+	// для свайпов
+	let touchStartX = 0;
+	let touchEndX = 0;
+	const minSwipeDistance = 50;
 
-	// Создаём DOM-структуру модального окна
 	function buildModal() {
 			const modalDiv = document.createElement('div');
 			modalDiv.className = 'gallery-modal';
@@ -37,21 +39,80 @@
 			const nextBtn = modalDiv.querySelector('.gallery-modal__next');
 			const img = modalDiv.querySelector('.gallery-modal__image');
 			
-			// Закрытие при клике на пустое место (overlay или container, но не на картинку и не на кнопки)
 			overlay.addEventListener('click', closeModal);
 			container.addEventListener('click', (e) => {
-					// Если клик пришёлся именно на container (пустое место вокруг картинки), закрываем
 					if (e.target === container) closeModal();
 			});
-			
 			closeBtn.addEventListener('click', closeModal);
 			prevBtn.addEventListener('click', () => navigate(-1));
 			nextBtn.addEventListener('click', () => navigate(1));
 			
+			// свайпы
+			container.addEventListener('touchstart', (e) => {
+					touchStartX = e.changedTouches[0].screenX;
+			});
+			container.addEventListener('touchend', (e) => {
+					touchEndX = e.changedTouches[0].screenX;
+					handleSwipe();
+			});
+			img.addEventListener('touchstart', (e) => {
+					touchStartX = e.changedTouches[0].screenX;
+					e.preventDefault();
+			});
+			img.addEventListener('touchend', (e) => {
+					touchEndX = e.changedTouches[0].screenX;
+					handleSwipe();
+					e.preventDefault();
+			});
+			
+			function handleSwipe() {
+					if (!isOpen || isTransitioning) return;
+					const diffX = touchEndX - touchStartX;
+					if (Math.abs(diffX) < minSwipeDistance) return;
+					if (diffX > 0) navigate(-1);
+					else navigate(1);
+			}
+			
+			img.style.transition = 'opacity 0.3s ease';
+			img.style.opacity = '1';
+			
 			return { modal: modalDiv, img };
 	}
 	
-	function openModal(index) {
+	// Плавная смена изображения (fade)
+	function setImageWithFade(newSrc) {
+			return new Promise((resolve) => {
+					if (!modalImg) return resolve();
+					modalImg.style.opacity = '0';
+					
+					const onTransitionEnd = () => {
+							modalImg.removeEventListener('transitionend', onTransitionEnd);
+							modalImg.src = newSrc;
+							if (modalImg.complete) {
+									modalImg.style.opacity = '1';
+									resolve();
+							} else {
+									modalImg.addEventListener('load', () => {
+											modalImg.style.opacity = '1';
+											resolve();
+									});
+									modalImg.addEventListener('error', () => {
+											modalImg.style.opacity = '1';
+											resolve();
+									});
+							}
+					};
+					
+					modalImg.addEventListener('transitionend', onTransitionEnd);
+					setTimeout(() => {
+							if (parseFloat(modalImg.style.opacity) !== 0) return;
+							modalImg.removeEventListener('transitionend', onTransitionEnd);
+							onTransitionEnd();
+					}, 50);
+			});
+	}
+	
+	async function openModal(index) {
 			if (!modal) {
 					const built = buildModal();
 					modal = built.modal;
@@ -62,12 +123,17 @@
 			if (index >= items.length) index = 0;
 			currentIndex = index;
 			
-			modalImg.src = items[currentIndex].src;
-			modalImg.alt = `Изображение ${currentIndex + 1}`;
+			const newSrc = items[currentIndex].src;
 			
-			modal.classList.add('gallery-modal--open');
-			document.body.style.overflow = 'hidden';
-			isOpen = true;
+			if (isOpen && modalImg) {
+					await setImageWithFade(newSrc);
+			} else {
+					modalImg.src = newSrc;
+					modalImg.style.opacity = '1';
+					modal.classList.add('gallery-modal--open');
+					document.body.style.overflow = 'hidden';
+					isOpen = true;
+			}
 	}
 	
 	function closeModal() {
@@ -78,11 +144,18 @@
 			}
 	}
 	
-	function navigate(direction) {
-			openModal(currentIndex + direction);
+	async function navigate(direction) {
+			if (!isOpen || isTransitioning) return;
+			isTransitioning = true;
+			let newIndex = currentIndex + direction;
+			if (newIndex < 0) newIndex = items.length - 1;
+			if (newIndex >= items.length) newIndex = 0;
+			currentIndex = newIndex;
+			await setImageWithFade(items[currentIndex].src);
+			isTransitioning = false;
 	}
 	
-	// Обработчики кликов по миниатюрам
+	// клики по миниатюрам
 	items.forEach((item, idx) => {
 			item.element.addEventListener('click', (e) => {
 					e.preventDefault();
@@ -90,7 +163,7 @@
 			});
 	});
 	
-	// Глобальная клавиатура
+	// клавиатура
 	document.addEventListener('keydown', (e) => {
 			if (!isOpen) return;
 			if (e.key === 'Escape') closeModal();
@@ -98,7 +171,7 @@
 			if (e.key === 'ArrowRight') navigate(1);
 	});
 	
-	// Стили
+	// стили
 	const style = document.createElement('style');
 	style.textContent = `
 			.gallery-modal {
@@ -131,13 +204,16 @@
 					display: flex;
 					align-items: center;
 					justify-content: center;
+					touch-action: pan-y pinch-zoom;
 			}
 			.gallery-modal__image {
 					max-width: 90vw;
 					max-height: 90vh;
 					object-fit: contain;
 					z-index: 2;
-					pointer-events: auto;  /* чтобы картинка не перехватывала клики для закрытия */
+					pointer-events: auto;
+					transition: opacity 0.3s ease;
+					opacity: 1;
 			}
 			.gallery-modal__close,
 			.gallery-modal__prev,

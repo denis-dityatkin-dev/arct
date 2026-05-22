@@ -478,9 +478,6 @@ body {
 .filter-portfolio__button:hover {
   color: var(--text-gold);
 }
-.filter-portfolio__button--active {
-  color: var(--text-gold);
-}
 
 .gallery-portfolio {
   display: grid;
