@@ -11,13 +11,17 @@
 	let modal = null;
 	let modalImg = null;
 	let isOpen = false;
-	let isTransitioning = false; // блокировка на время анимации
+	let isTransitioning = false;
 	
-	// для свайпов
+	// для свайпов (мобильные) и drag (десктоп)
 	let touchStartX = 0;
 	let touchEndX = 0;
-	const minSwipeDistance = 50;
-
+	let mouseStartX = 0;
+	let mouseEndX = 0;
+	let isDragging = false;
+	let dragThreshold = 30; // минимальное смещение для срабатывания переключения
+	let hasDragged = false;  // отличается от простого клика для закрытия
+	
 	function buildModal() {
 			const modalDiv = document.createElement('div');
 			modalDiv.className = 'gallery-modal';
@@ -27,7 +31,7 @@
 							<button class="gallery-modal__close" aria-label="Закрыть">&times;</button>
 							<button class="gallery-modal__prev" aria-label="Предыдущее">&#10094;</button>
 							<button class="gallery-modal__next" aria-label="Следующее">&#10095;</button>
-							<img class="gallery-modal__image" alt="Full size image">
+							<img class="gallery-modal__image" alt="Full size image" draggable="false">
 					</div>
 			`;
 			document.body.appendChild(modalDiv);
@@ -39,17 +43,26 @@
 			const nextBtn = modalDiv.querySelector('.gallery-modal__next');
 			const img = modalDiv.querySelector('.gallery-modal__image');
 			
+			// Закрытие по клику на фон (без перетаскивания)
 			overlay.addEventListener('click', closeModal);
+			
+			// Закрытие по фону-контейнеру, но только если не было drag
 			container.addEventListener('click', (e) => {
-					if (e.target === container) closeModal();
+					if (e.target === container && !hasDragged) {
+							closeModal();
+					}
+					hasDragged = false; // сброс после обработки
 			});
+			
 			closeBtn.addEventListener('click', closeModal);
 			prevBtn.addEventListener('click', () => navigate(-1));
 			nextBtn.addEventListener('click', () => navigate(1));
 			
-			// свайпы
+			// ----- MOBILE SWIPE -----
 			container.addEventListener('touchstart', (e) => {
 					touchStartX = e.changedTouches[0].screenX;
+					isDragging = false;
+					hasDragged = false;
 			});
 			container.addEventListener('touchend', (e) => {
 					touchEndX = e.changedTouches[0].screenX;
@@ -58,6 +71,7 @@
 			img.addEventListener('touchstart', (e) => {
 					touchStartX = e.changedTouches[0].screenX;
 					e.preventDefault();
+					isDragging = false;
 			});
 			img.addEventListener('touchend', (e) => {
 					touchEndX = e.changedTouches[0].screenX;
@@ -68,10 +82,57 @@
 			function handleSwipe() {
 					if (!isOpen || isTransitioning) return;
 					const diffX = touchEndX - touchStartX;
-					if (Math.abs(diffX) < minSwipeDistance) return;
+					if (Math.abs(diffX) < dragThreshold) return;
 					if (diffX > 0) navigate(-1);
 					else navigate(1);
 			}
+			
+			// ----- DESKTOP DRAG (мышь) -----
+			const onMouseMove = (e) => {
+					if (!isDragging) return;
+					e.preventDefault();
+					// Отслеживаем движение мыши при зажатой кнопке
+					mouseEndX = e.screenX;
+					const diffX = mouseEndX - mouseStartX;
+					// Можно добавить визуальный фидбек, но для простоты просто запоминаем
+					if (Math.abs(diffX) > dragThreshold) {
+							hasDragged = true;
+					}
+			};
+			
+			const onMouseUp = (e) => {
+					if (!isDragging) return;
+					document.removeEventListener('mousemove', onMouseMove);
+					document.removeEventListener('mouseup', onMouseUp);
+					const diffX = mouseEndX - mouseStartX;
+					if (Math.abs(diffX) >= dragThreshold && !isTransitioning && isOpen) {
+							if (diffX > 0) navigate(-1);
+							else navigate(1);
+					}
+					isDragging = false;
+					// Сброс, чтобы клик по фону не закрывал, если был drag
+					setTimeout(() => { hasDragged = false; }, 50);
+			};
+			
+			const onMouseDown = (e) => {
+					if (!isOpen || isTransitioning) return;
+					// Разрешаем drag только на контейнере или на изображении, но не на кнопках
+					if (e.target === closeBtn || e.target === prevBtn || e.target === nextBtn) return;
+					e.preventDefault();
+					isDragging = true;
+					mouseStartX = e.screenX;
+					mouseEndX = e.screenX;
+					hasDragged = false;
+					document.addEventListener('mousemove', onMouseMove);
+					document.addEventListener('mouseup', onMouseUp);
+			};
+			
+			container.addEventListener('mousedown', onMouseDown);
+			img.addEventListener('mousedown', onMouseDown);
+			
+			// Предотвращаем выделение текста и стандартный drag изображения
+			container.addEventListener('dragstart', (e) => e.preventDefault());
+			img.addEventListener('dragstart', (e) => e.preventDefault());
 			
 			img.style.transition = 'opacity 0.3s ease';
 			img.style.opacity = '1';
@@ -141,6 +202,7 @@
 					modal.classList.remove('gallery-modal--open');
 					document.body.style.overflow = '';
 					isOpen = false;
+					isDragging = false;
 			}
 	}
 	
@@ -155,7 +217,7 @@
 			isTransitioning = false;
 	}
 	
-	// клики по миниатюрам
+	// Назначение кликов миниатюрам
 	items.forEach((item, idx) => {
 			item.element.addEventListener('click', (e) => {
 					e.preventDefault();
@@ -163,7 +225,7 @@
 			});
 	});
 	
-	// клавиатура
+	// Клавиатура
 	document.addEventListener('keydown', (e) => {
 			if (!isOpen) return;
 			if (e.key === 'Escape') closeModal();
@@ -171,7 +233,7 @@
 			if (e.key === 'ArrowRight') navigate(1);
 	});
 	
-	// стили
+	// CSS стили
 	const style = document.createElement('style');
 	style.textContent = `
 			.gallery-modal {
@@ -205,6 +267,11 @@
 					align-items: center;
 					justify-content: center;
 					touch-action: pan-y pinch-zoom;
+					user-select: none;
+					cursor: grab;
+			}
+			.gallery-modal__container:active {
+					cursor: grabbing;
 			}
 			.gallery-modal__image {
 					max-width: 90vw;
@@ -214,6 +281,7 @@
 					pointer-events: auto;
 					transition: opacity 0.3s ease;
 					opacity: 1;
+					user-select: none;
 			}
 			.gallery-modal__close,
 			.gallery-modal__prev,
@@ -224,6 +292,7 @@
 					cursor: pointer;
 					z-index: 3;
 					transition: background 0.2s;
+					user-select: none;
 			}
 			.gallery-modal__close {
 					position: absolute;
