@@ -137,93 +137,93 @@
 									<p>Viverra senectus dui ultricies dolor varius nibh velit sapien, sapien pellentesque ue dignissim.</p>
 								</div>
 							</div>
-							<ul class="header-portfolio__filter filter-portfolio">
+							<ul class="header-portfolio__filter filter-portfolio" id="myBtnContainer">
 								<li class="filter-portfolio__item">
-									<button type="button" class="filter-portfolio__button filter-portfolio__button--active">All</button>
+									<button onclick="filterSelection('all')" type="button" class="filter-portfolio__button filter-portfolio__button btn active">All</button>
 								</li>
 								<li class="filter-portfolio__item">
-									<button type="button" class="filter-portfolio__button">Houses</button>
+									<button onclick="filterSelection('houses')" type="button" class="filter-portfolio__button btn">Houses</button>
 								</li>
 								<li class="filter-portfolio__item">
-									<button type="button" class="filter-portfolio__button">Buildings</button>
+									<button onclick="filterSelection('buildings')" type="button" class="filter-portfolio__button btn">Buildings</button>
 								</li>
 								<li class="filter-portfolio__item">
-									<button type="button" class="filter-portfolio__button">Hotels</button>
+									<button onclick="filterSelection('hotels')" type="button" class="filter-portfolio__button btn">Hotels</button>
 								</li>
 								<li class="filter-portfolio__item">
-									<button type="button" class="filter-portfolio__button">Interior</button>
+									<button onclick="filterSelection('interior')" type="button" class="filter-portfolio__button btn">Interior</button>
 								</li>
 								<li class="filter-portfolio__item">
-									<button type="button" class="filter-portfolio__button">Living rooms</button>
+									<button onclick="filterSelection('living rooms')" type="button" class="filter-portfolio__button btn">Living rooms</button>
 								</li>
 							</ul>
 						</div>
 					</div>
-					<ul class="portfolio__gallery gallery-portfolio">
-						<li class="gallery-portfolio__item">
+					<ul class="portfolio__gallery gallery-portfolio container">
+						<li class="gallery-portfolio__item filterDiv living rooms">
 							<a href="#" class="gallery-portfolio__link">
 								<picture>
 									<img src="./images//gallery/gallery-1.jpg" alt="gallery-portfolio" class="gallery-portfolio__image">
 								</picture>
 							</a>
 						</li>
-						<li class="gallery-portfolio__item">
+						<li class="gallery-portfolio__item filterDiv houses buildings">
 							<a href="#" class="gallery-portfolio__link">
 								<picture>
 									<img src="./images//gallery/gallery-2.jpg" alt="gallery-portfolio" class="gallery-portfolio__image">
 								</picture>
 							</a>
 						</li>
-						<li class="gallery-portfolio__item">
+						<li class="gallery-portfolio__item filterDiv buildings">
 							<a href="#" class="gallery-portfolio__link">
 								<picture>
 									<img src="./images//gallery/gallery-3.jpg" alt="gallery-portfolio" class="gallery-portfolio__image">
 								</picture>
 							</a>
 						</li>
-						<li class="gallery-portfolio__item">
+						<li class="gallery-portfolio__item filterDiv living rooms">
 							<a href="#" class="gallery-portfolio__link">
 								<picture>
 									<img src="./images//gallery/gallery-4.jpg" alt="gallery-portfolio" class="gallery-portfolio__image">
 								</picture>
 							</a>
 						</li>
-						<li class="gallery-portfolio__item">
+						<li class="gallery-portfolio__item filterDiv buildings houses">
 							<a href="#" class="gallery-portfolio__link">
 								<picture>
 									<img src="./images//gallery/gallery-5.jpg" alt="gallery-portfolio" class="gallery-portfolio__image">
 								</picture>
 							</a>
 						</li>
-						<li class="gallery-portfolio__item">
+						<li class="gallery-portfolio__item filterDiv hotels">
 							<a href="#" class="gallery-portfolio__link">
 								<picture>
 									<img src="./images//gallery/gallery-6.jpg" alt="gallery-portfolio" class="gallery-portfolio__image">
 								</picture>
 							</a>
 						</li>
-						<li class="gallery-portfolio__item">
+						<li class="gallery-portfolio__item filterDiv interior buildings">
 							<a href="#" class="gallery-portfolio__link">
 								<picture>
 									<img src="./images//gallery/gallery-7.jpg" alt="gallery-portfolio" class="gallery-portfolio__image">
 								</picture>
 							</a>
 						</li>
-						<li class="gallery-portfolio__item">
+						<li class="gallery-portfolio__item filterDiv interior">
 							<a href="#" class="gallery-portfolio__link">
 								<picture>
 									<img src="./images//gallery/gallery-10.jpg" alt="gallery-portfolio" class="gallery-portfolio__image">
 								</picture>
 							</a>
 						</li>
-						<li class="gallery-portfolio__item">
+						<li class="gallery-portfolio__item filterDiv interior">
 							<a href="#" class="gallery-portfolio__link">
 								<picture>
 									<img src="./images//gallery/gallery-8.jpg" alt="gallery-portfolio" class="gallery-portfolio__image">
 								</picture>
 							</a>
 						</li>
-						<li class="gallery-portfolio__item">
+						<li class="gallery-portfolio__item filterDiv houses">
 							<a href="#" class="gallery-portfolio__link">
 								<picture>
 									<img src="./images//gallery/gallery-9.jpg" alt="gallery-portfolio" class="gallery-portfolio__image">
@@ -359,7 +359,7 @@
 	<script src="js/components/slider_swiper.js"></script>
 	<script src="js/components/burger.js"></script>
 	<script src="js/components/float-head.js"></script>
-	<script src="js/gallery.js"></script>
+	<script src="js/filter.js"></script>
 	<!-- <script src="js/components/anim.js"></script> -->
 </body>
 </html>

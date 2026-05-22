@@ -1,0 +1,25 @@
+.container {
+  overflow: hidden;
+}
+
+.filterDiv {
+  display: none; 
+}
+
+.show {
+  display: block;
+}
+
+.btn {
+  border: none;
+  outline: none;
+
+}
+
+.btn:hover {
+	color: var(--text-gold);
+}
+
+.btn.active {
+	color: var(--text-gold);
+}
