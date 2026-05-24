@@ -441,7 +441,7 @@ body {
     max-width: 28.75rem;
   }
 }
-.header-portfolio__text:not(::last-child) {
+.header-portfolio__text p:not(:last-child) {
   margin-bottom: 0.625rem;
 }
 .header-portfolio__filter {
@@ -512,7 +512,6 @@ body {
 }
 .services__inner-container {
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
   gap: 1.25rem;
 }
@@ -521,14 +520,16 @@ body {
     flex-direction: column;
   }
 }
-.services__body {
-  display: grid;
-  gap: calc(10px + 24 * ((100vw - 320px) / 1600));
-}
-@media (min-width: 47.9988rem) {
+@media (min-width: 61.9988rem) {
   .services__body {
-    flex-basis: 50%;
+    flex-basis: 36rem;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 6.25rem;
   }
+}
+.services__title:not(:last-child) {
+  margin-bottom: calc(10px + 24 * ((100vw - 320px) / 1600));
 }
 .services__text {
   line-height: 2.124;
@@ -539,34 +540,36 @@ body {
     max-width: 28.75rem;
   }
 }
+.services__text p:not(:last-child) {
+  margin-bottom: 0.625rem;
+}
 .services__items {
   display: grid;
-  grid-template-columns: repeat(auto);
+  grid-template-columns: repeat(auto-fit, minmax(min(20.625rem, 100%), 1fr));
   gap: calc(10px + 42 * ((100vw - 320px) / 1600));
 }
-@media (min-width: 47.9988rem) {
+@media (min-width: 61.9988rem) {
   .services__items {
-    flex-basis: 50%;
-    grid-template-columns: repeat(2, 1fr);
+    flex-grow: 1;
   }
 }
 .services__item {
   box-shadow: 0 1.3125rem 2.75rem 0 rgba(0, 0, 0, 0.04);
   background-color: var(--background-item);
   border: 1px solid var(--border-item);
-  padding: calc(5px + 45 * ((100vw - 320px) / 1600));
+  padding-block: calc(5px + 45 * ((100vw - 320px) / 1600));
+  padding-inline: calc(5px + 58 * ((100vw - 320px) / 1600));
 }
 
-.item-services {
-  display: grid;
-  gap: 0.375rem;
-}
 .item-services__title {
   font-weight: 500;
   font-size: calc(18px + 4 * ((100vw - 320px) / 1600));
   line-height: 2.124;
   text-transform: capitalize;
   color: var(--text-dark2);
+}
+.item-services__title:not(:last-child) {
+  margin-bottom: 0.375rem;
 }
 .item-services__text {
   line-height: 2.124;

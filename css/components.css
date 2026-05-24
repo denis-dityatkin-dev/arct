@@ -60,7 +60,7 @@ body {
 }
 .title {
   font-family: var(--second-family);
-  font-size: calc(32px + 17 * ((100vw - 320px) / 1600));
+  font-size: calc(28px + 21 * ((100vw - 320px) / 1600));
   line-height: 1.294;
   letter-spacing: -0.02em;
   text-transform: capitalize;
