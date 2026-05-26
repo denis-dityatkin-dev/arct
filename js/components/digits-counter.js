@@ -46,12 +46,12 @@ function windowLoad(){
 					digitsCountersInit(digitsCountersItems);
 				}
 				// Выключить отслеживание после срабатывания
-				observer.unobserve(targetElement);
+				// observer.unobserve(targetElement);
 			}
 		});
 	}, options);
 
-	let sections = document.querySelectorAll(".page__section");
+	let sections = document.querySelectorAll(".advantages");
 	if(sections.length){
 		sections.forEach(section => {
 			observer.observe(section);
