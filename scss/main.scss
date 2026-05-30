@@ -32,6 +32,7 @@ $maxWidthContainer: 1810;
 	--text-link: #939393;
 	--text-button: #979797;
 	--text-lite-gray: #888;
+	--text-gray-bullet: #e1e1e1;
 	--text-lite-gray2: #cfcfcf;
 	--text-counter: #dedede;
 	--text-gold: #91795c;
@@ -749,8 +750,8 @@ body {
 
 	&__media,
 	&__content {
-		flex-basis: 18.75rem;
-		flex-grow: 1;
+		// flex-basis: 18.75rem;
+		// flex-grow: 1;
 	}
 	&__picture {
 		display: block;
@@ -763,6 +764,10 @@ body {
 	}
 
 	&__content {
+		flex-basis: 50%;
+		flex-shrink: 0;
+
+		min-width: 0;
 		background-color: var(--background-item);
 		@include adaptive-value("padding-block", 125, 10, 0);
 		@include adaptive-value("padding-inline", 160, 10, 0);
@@ -776,6 +781,7 @@ body {
 	}
 
 	&__slider {
+		overflow: hidden;
 	}
 
 	&__wrapper {
@@ -800,20 +806,24 @@ body {
 		@include adaptive-value("font-size", 22, 16, 0);
 		line-height: 2.224;
 		letter-spacing: 0.02em;
+		display: grid;
 		&:not(:last-child) {
 			@include adaptive-value("margin-bottom", 33, 20, 0);
 		}
-		@include adaptive-value("margin-top", 170, 100, 0);
-		position: relative;
+		@media (min-width: 61.9988rem) {
+			// @include adaptive-value("margin-top", 170, 100, 0);
+		}
+		// position: relative;
 		&::before {
-			
-			position: absolute;
-			content: "";
-			background: url("../images/reviews/quote.svg") top left no-repeat;
-			height: 100%;
-			width: 100%;
-			top: -60%;
-			left: -10%;
+			@media (min-width: 61.9988rem) {
+				// position: absolute;
+				content: "";
+				background: url("../images/reviews/quote.svg") 0 0 / 100% no-repeat;
+				width: 117px;
+				aspect-ratio: 117 / 101;
+				// @include adaptive-value("bottom", 210, 20, 0);
+				// @include adaptive-value("right", 70, 0, 0);
+			}
 		}
 	}
 
@@ -830,5 +840,23 @@ body {
 		letter-spacing: 0.02em;
 		text-transform: capitalize;
 		color: var(--text-primary-2);
+	}
+}
+.bullets-reviews {
+	display: flex;
+	gap: 1.125rem;
+	@include adaptive-value("padding-top", 42, 20, 0);
+	&__item {
+		cursor: pointer;
+		aspect-ratio: 1;
+		width: 0.625rem;
+		background-color: var(--text-gray-bullet);
+		transition: background-color 0.5s;
+		&:hover {
+			background-color: var(--text-gold);
+		}
+		&--active {
+			background-color: var(--text-gold);
+		}
 	}
 }

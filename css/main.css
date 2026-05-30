@@ -15,6 +15,7 @@
   --text-link: #939393;
   --text-button: #979797;
   --text-lite-gray: #888;
+  --text-gray-bullet: #e1e1e1;
   --text-lite-gray2: #cfcfcf;
   --text-counter: #dedede;
   --text-gold: #91795c;
@@ -627,10 +628,6 @@ body {
 .reviews__container {
   display: flex;
 }
-.reviews__media, .reviews__content {
-  flex-basis: 18.75rem;
-  flex-grow: 1;
-}
 .reviews__picture {
   display: block;
   margin-right: -20%;
@@ -642,6 +639,9 @@ body {
      object-fit: cover;
 }
 .reviews__content {
+  flex-basis: 50%;
+  flex-shrink: 0;
+  min-width: 0;
   background-color: var(--background-item);
   padding-block: calc(10px + 115 * ((100vw - 320px) / 1600));
   padding-inline: calc(10px + 150 * ((100vw - 320px) / 1600));
@@ -650,25 +650,26 @@ body {
 .reviews__title:not(:last-child) {
   margin-bottom: 0.625rem;
 }
+.reviews__slider {
+  overflow: hidden;
+}
 .slide-reviews__review {
   font-weight: 300;
   font-size: calc(16px + 6 * ((100vw - 320px) / 1600));
   line-height: 2.224;
   letter-spacing: 0.02em;
-  margin-top: calc(100px + 70 * ((100vw - 320px) / 1600));
-  position: relative;
+  display: grid;
 }
 .slide-reviews__review:not(:last-child) {
   margin-bottom: calc(20px + 13 * ((100vw - 320px) / 1600));
 }
-.slide-reviews__review::before {
-  position: absolute;
-  content: "";
-  background: url("../images/reviews/quote.svg") top left no-repeat;
-  height: 100%;
-  width: 100%;
-  top: -60%;
-  left: -10%;
+@media (min-width: 61.9988rem) {
+  .slide-reviews__review::before {
+    content: "";
+    background: url("../images/reviews/quote.svg") 0 0/100% no-repeat;
+    width: 117px;
+    aspect-ratio: 117/101;
+  }
 }
 .slide-reviews__name {
   font-weight: 500;
@@ -682,4 +683,23 @@ body {
   letter-spacing: 0.02em;
   text-transform: capitalize;
   color: var(--text-primary-2);
+}
+
+.bullets-reviews {
+  display: flex;
+  gap: 1.125rem;
+  padding-top: calc(20px + 22 * ((100vw - 320px) / 1600));
+}
+.bullets-reviews__item {
+  cursor: pointer;
+  aspect-ratio: 1;
+  width: 0.625rem;
+  background-color: var(--text-gray-bullet);
+  transition: background-color 0.5s;
+}
+.bullets-reviews__item:hover {
+  background-color: var(--text-gold);
+}
+.bullets-reviews__item--active {
+  background-color: var(--text-gold);
 }

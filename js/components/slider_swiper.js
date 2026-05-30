@@ -1,7 +1,7 @@
 "use strict";
 // Инициализация Swiper
 let myImageSlider = new
-	Swiper(".swiper-container", {
+	Swiper(".hero__slider", {
 		
 		// Стрелки
 		navigation: {
@@ -94,7 +94,7 @@ let myImageSlider = new
 		},
 
 		  // Динамические буллеты
-		  dynamicBullets: true,
+		  // dynamicBullets: true,
 		//   // Кастомные буллеты
 		//   renderBullet: function (index, className) {
 		//     return '<span class="' + className + '">' + (index + 1) + '</span>';
@@ -344,15 +344,15 @@ let myImageSlider = new
 		// Навигация
 		// Буллеты,текущее положение. прогрессбар
 		pagination: {
-			el: ".bullets-hero",
-			bulletClass: 'bullets-hero__item',
-			bulletActiveClass: 'bullets-hero__item--active',
+			el: ".bullets-reviews",
+			bulletClass: 'bullets-reviews__item',
+			bulletActiveClass: 'bullets-reviews__item--active',
 			// Буллеты
 			clickable: true,
 		},
 
 		  // Динамические буллеты
-		  dynamicBullets: true,
+		  // dynamicBullets: true,
 		//   // Кастомные буллеты
 		//   renderBullet: function (index, className) {
 		//     return '<span class="' + className + '">' + (index + 1) + '</span>';
@@ -516,29 +516,3 @@ let myImageSlider = new
 
 
 	});
- // Слайдер в слайдере
-// new Swiper(".image-in-slider", {
-//   // Курсор перетаскивания
-//   grabCursor: true,
-//   // Навигация
-//   // Пагинация, текущее положение, прогрессбар
-//   pagination: {
-//     el: ".swiper-pagination",
-//     // Буллеты
-//     clickable: true,
-//   },
-//   // Корректная работа перетаскивания\свайпа для дочернего слайдера
-//   nested: true,
-// });
-
-// Ещё один слайдер
-// let myTextSlider = new Swiper(".text-slider", {
-//   // Количество слайдов для показа
-//   slidesPerView: 2,
-//   // Отступ между слайдами
-//   spaseBetween: 30,
-// });
-
-// Передача управления
-// myImageSlider.controller.control = myTextSlider;
-// myTextSlider.controller.control = myImageSlider;
