@@ -746,16 +746,25 @@ body {
 	@include adaptive-value("margin-bottom", 193, 40, 0);
 	&__container {
 		display: flex;
+		@media (max-width: 61.9988rem) {
+			flex-direction: column-reverse;
+		}
 	}
 
-	&__media,
+	&__media {
+		flex-grow: 1;
+	}
 	&__content {
 		// flex-basis: 18.75rem;
 		// flex-grow: 1;
 	}
 	&__picture {
-		display: block;
-		margin-right: -20%;
+		display: none;
+
+		@media (min-width: 61.9988rem) {
+			display: block;
+			margin-right: -20%;
+		}
 	}
 	&__image {
 		width: 100%;
@@ -764,12 +773,15 @@ body {
 	}
 
 	&__content {
-		flex-basis: 50%;
-		flex-shrink: 0;
+		@media (min-width: 61.9988rem) {
+			flex-basis: 50%;
+			flex-shrink: 0;
+			min-width: 650px;
+		}
 
-		min-width: 0;
 		background-color: var(--background-item);
-		@include adaptive-value("padding-block", 125, 10, 0);
+		@include adaptive-value("padding-top", 125, 30, 0);
+		@include adaptive-value("padding-bottom", 90, 30, 0);
 		@include adaptive-value("padding-inline", 160, 10, 0);
 		@include adaptive-value("margin-top", 133, 0, 0);
 	}
@@ -781,7 +793,10 @@ body {
 	}
 
 	&__slider {
-		overflow: hidden;
+		overflow: hidden; /* обязательно для Swiper */
+		touch-action: pan-y pinch-zoom; /* включает свайп на тач-устройствах */
+		width: 100%; /* чтобы контейнер занимал всю доступную ширину */
+		position: relative;
 	}
 
 	&__wrapper {
@@ -846,6 +861,10 @@ body {
 	display: flex;
 	gap: 1.125rem;
 	@include adaptive-value("padding-top", 42, 20, 0);
+	@media (max-width: 61.9988rem) {
+		justify-content: center;
+		align-items: center;
+	}
 	&__item {
 		cursor: pointer;
 		aspect-ratio: 1;

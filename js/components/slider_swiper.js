@@ -260,7 +260,9 @@ let myImageSlider = new
 	});
 	let myImageSlider2 = new
 	Swiper(".reviews__slider", {
-		
+		observer: true,
+    observeParents: true,
+    observeSlideChildren: true,
 		// Стрелки
 		// navigation: {
 		// 	nextEl: ".swiper-button-next",
@@ -313,7 +315,7 @@ let myImageSlider = new
 		// slidesPerColumn: 1,
 
 		// Бесконечный слайдер
-		// loop: true,
+		loop: true,
 
 		// Количество дублирующих слайдов
 		// loopedSlides: 0,
@@ -350,6 +352,7 @@ let myImageSlider = new
 			// Буллеты
 			clickable: true,
 		},
+		
 
 		  // Динамические буллеты
 		  // dynamicBullets: true,

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Prata:regular&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Rubik:300,regular,500,600,700,800,900,italic&display=swap");
 @import "../css/font-icons.css";
@@ -628,9 +629,22 @@ body {
 .reviews__container {
   display: flex;
 }
+@media (max-width: 61.9988rem) {
+  .reviews__container {
+    flex-direction: column-reverse;
+  }
+}
+.reviews__media {
+  flex-grow: 1;
+}
 .reviews__picture {
-  display: block;
-  margin-right: -20%;
+  display: none;
+}
+@media (min-width: 61.9988rem) {
+  .reviews__picture {
+    display: block;
+    margin-right: -20%;
+  }
 }
 .reviews__image {
   width: 100%;
@@ -639,19 +653,27 @@ body {
      object-fit: cover;
 }
 .reviews__content {
-  flex-basis: 50%;
-  flex-shrink: 0;
-  min-width: 0;
   background-color: var(--background-item);
-  padding-block: calc(10px + 115 * ((100vw - 320px) / 1600));
+  padding-top: calc(30px + 95 * ((100vw - 320px) / 1600));
+  padding-bottom: calc(30px + 60 * ((100vw - 320px) / 1600));
   padding-inline: calc(10px + 150 * ((100vw - 320px) / 1600));
   margin-top: calc(0px + 133 * ((100vw - 320px) / 1600));
+}
+@media (min-width: 61.9988rem) {
+  .reviews__content {
+    flex-basis: 50%;
+    flex-shrink: 0;
+    min-width: 650px;
+  }
 }
 .reviews__title:not(:last-child) {
   margin-bottom: 0.625rem;
 }
 .reviews__slider {
-  overflow: hidden;
+  overflow: hidden; /* обязательно для Swiper */
+  touch-action: pan-y pinch-zoom; /* включает свайп на тач-устройствах */
+  width: 100%; /* чтобы контейнер занимал всю доступную ширину */
+  position: relative;
 }
 .slide-reviews__review {
   font-weight: 300;
@@ -689,6 +711,12 @@ body {
   display: flex;
   gap: 1.125rem;
   padding-top: calc(20px + 22 * ((100vw - 320px) / 1600));
+}
+@media (max-width: 61.9988rem) {
+  .bullets-reviews {
+    justify-content: center;
+    align-items: center;
+  }
 }
 .bullets-reviews__item {
   cursor: pointer;
