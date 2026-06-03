@@ -731,3 +731,109 @@ body {
 .bullets-reviews__item--active {
   background-color: var(--text-gold);
 }
+
+.faqs {
+  margin-bottom: calc(40px + 220 * ((100vw - 320px) / 1600));
+}
+.faqs__inner-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+@media (max-width: 61.9988rem) {
+  .faqs__inner-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+@media (min-width: 61.9988rem) {
+  .faqs__body {
+    flex-basis: 36.25rem;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 6.25rem;
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+}
+.faqs__title:not(:last-child) {
+  margin-bottom: calc(10px + 24 * ((100vw - 320px) / 1600));
+}
+.faqs__text {
+  line-height: 2.124;
+  letter-spacing: 0.02em;
+}
+@media (min-width: 61.9988rem) {
+  .faqs__text {
+    max-width: 28.75rem;
+  }
+}
+.faqs__text p:not(:last-child) {
+  margin-bottom: 0.625rem;
+}
+@media (min-width: 61.9988rem) {
+  .faqs__items {
+    max-width: 60rem;
+    flex-grow: 1;
+  }
+}
+.faqs__spollers {
+  display: grid;
+  gap: calc(20px + 15 * ((100vw - 320px) / 1600));
+}
+
+.spollers-faqs__item {
+  border: 1px solid var(--border-item);
+  box-shadow: 0 1.25rem 2.3125rem 0 rgba(0, 0, 0, 0.02);
+  background: var(--background-item);
+  padding-block: calc(10px + 20 * ((100vw - 320px) / 1600));
+  padding-inline: calc(10px + 30 * ((100vw - 320px) / 1600));
+}
+.spollers-faqs__title {
+  cursor: pointer;
+  font-size: calc(18px + 12 * ((100vw - 320px) / 1600));
+  line-height: 1.724;
+  letter-spacing: -0.01em;
+  color: var(--text-dark2);
+  position: relative;
+  padding-right: 1.875rem;
+  transition: color 0.5s;
+}
+.spollers-faqs__title:hover {
+  color: var(--text-gold);
+}
+.spollers-faqs__title::before, .spollers-faqs__title::after {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  translate: 0 -50%;
+  width: 1.25rem;
+  text-align: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.spollers-faqs__title::before {
+  content: "+";
+}
+.spollers-faqs__title::after {
+  content: "–";
+  opacity: 0;
+  transform: scale(0.8);
+}
+.spollers-faqs__title._active::before {
+  opacity: 0;
+  transform: scale(0.8);
+}
+.spollers-faqs__title._active::after {
+  opacity: 1;
+  transform: scale(1);
+}
+.spollers-faqs__text {
+  padding-top: 0.6875rem;
+  line-height: 2.124;
+  letter-spacing: 0.02em;
+  color: var(--text-primary-2);
+}
+.spollers-faqs__text p:not(:last-child) {
+  margin-bottom: 0.625rem;
+}

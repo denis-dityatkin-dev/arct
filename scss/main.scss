@@ -879,3 +879,129 @@ body {
 		}
 	}
 }
+
+// ========= faqs ========
+
+.faqs {
+	@include adaptive-value("margin-bottom", 260, 40, 0);
+	&__container {
+	}
+
+	&__inner-container {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 1.25rem;
+		@media (max-width: 61.9988rem) {
+			flex-direction: column;
+			align-items: stretch;
+		}
+	}
+
+	&__body {
+		@media (min-width: 61.9988rem) {
+			flex-basis: 36.25rem;
+			position: sticky;
+			top: 6.25rem;
+			flex-grow: 1;
+			flex-shrink: 0;
+		}
+	}
+
+	&__title {
+		&:not(:last-child) {
+			@include adaptive-value("margin-bottom", 34, 10, 0);
+		}
+	}
+
+	&__text {
+		line-height: 2.124;
+		letter-spacing: 0.02em;
+		@media (min-width: 61.9988rem) {
+			max-width: 28.75rem;
+		}
+		p {
+			&:not(:last-child) {
+				margin-bottom: 0.625rem;
+			}
+		}
+	}
+
+	&__items {
+		@media (min-width: 61.9988rem) {
+			max-width: 60rem;
+			flex-grow: 1;
+		}
+	}
+
+	&__spollers {
+		display: grid;
+		@include adaptive-value("gap", 35, 20, 0);
+		
+	}
+}
+
+.spollers-faqs {
+	&__item {
+		border: 1px solid var(--border-item);
+		box-shadow: 0 1.25rem 2.3125rem 0 rgba(0, 0, 0, 0.02);
+		background: var(--background-item);
+		@include adaptive-value("padding-block", 30, 10, 0);
+		@include adaptive-value("padding-inline", 40, 10, 0);
+	}
+
+	&__title {
+		cursor: pointer;
+		@include adaptive-value("font-size", 30, 18, 0);
+		line-height: 1.724;
+		letter-spacing: -0.01em;
+		color: var(--text-dark2);
+
+		position: relative;
+		padding-right: 1.875rem;
+		transition: color 0.5s;
+		&:hover {
+			color: var(--text-gold);
+		}
+		&::before,
+		&::after {
+			position: absolute;
+			right: 0;
+			top: 50%;
+			translate: 0 -50%;
+			width: 1.25rem; // фиксированная ширина
+			text-align: center; // центрируем символ внутри
+			transition: opacity 0.3s ease, transform 0.3s ease;
+		}
+		&::before {
+			content: "+";
+		}
+		&::after {
+			content: "–"; // используем длинное тире или минус
+			opacity: 0;
+			transform: scale(0.8);
+		}
+		&._active {
+			&::before {
+				opacity: 0;
+				transform: scale(0.8);
+			}
+			&::after {
+				opacity: 1;
+				transform: scale(1);
+			}
+		}
+	}
+
+	&__text {
+		padding-top: 0.6875rem;
+		line-height: 2.124;
+		letter-spacing: 0.02em;
+		color: var(--text-primary-2);
+		p {
+			&:not(:last-child) {
+				margin-bottom: 0.625rem;
+			}
+		}
+	}
+}
