@@ -848,31 +848,65 @@ body {
 .bloghome__title:not(:last-child) {
   margin-bottom: calc(20px + 14 * ((100vw - 320px) / 1600));
 }
-.bloghome__text {
-  max-width: 28.75rem;
-}
-.bloghome__items {
-  display: flex;
-  align-items: center;
-  gap: calc(20px + 21 * ((100vw - 320px) / 1600));
-}
-@media (max-width: 61.9988rem) {
-  .bloghome__items {
-    flex-direction: column;
-    align-items: stretch;
+@media (min-width: 61.9988rem) {
+  .bloghome__text {
+    max-width: 28.75rem;
   }
 }
+.bloghome__text p:not(:last-child) {
+  margin-bottom: 0.625rem;
+}
+.bloghome__items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: calc(20px + 21 * ((100vw - 320px) / 1600));
+}
+.bloghome__items:not(:last-child) {
+  margin-bottom: calc(30px + 60 * ((100vw - 320px) / 1600));
+}
+.bloghome__footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.item-blog__image-link {
+  display: block;
+  aspect-ratio: 481/412;
+  overflow: hidden;
+}
 .item-blog__image-link img {
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: scale 0.5s;
+}
+.item-blog__image-link img:hover {
+  scale: 1.05;
 }
 .item-blog__body {
+  position: relative;
+  z-index: 2;
   border: 0.0625rem solid var(--border-item);
   box-shadow: 0 1.25rem 2.75rem 0 rgba(0, 0, 0, 0.06);
   background-color: var(--background-item);
   padding-inline: calc(5px + 30 * ((100vw - 320px) / 1600));
   padding-block: calc(5px + 25 * ((100vw - 320px) / 1600));
+  display: grid;
+}
+@media (min-width: 61.9988rem) {
+  .item-blog__body {
+    margin: -1.875rem 1.875rem 0 1.875rem;
+  }
+}
+.item-blog__body > *:not(:last-child) {
+  margin-bottom: 0.625rem;
+}
+.item-blog__body > *:last-child {
+  margin-bottom: 0;
 }
 .item-blog__date {
+  display: block;
   font-size: 0.875rem;
   line-height: 2.124;
   color: var(--text-lite-gray3);
@@ -883,6 +917,10 @@ body {
   line-height: 1.479;
   text-transform: capitalize;
   color: var(--text-dark2);
+  transition: color 0.5s;
+}
+.item-blog__title:hover {
+  color: var(--text-gold);
 }
 .item-blog__text {
   line-height: 2.009;
