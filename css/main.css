@@ -939,3 +939,16 @@ body {
 .item-blog__text .spoiler-btn:hover {
   color: var(--text-dark);
 }
+
+.item-blog__text .spoiler-wrapper {
+  display: flex;
+  flex-wrap: nowrap; /* запрещаем перенос */
+  align-items: baseline;
+  gap: 4px;
+  overflow-x: auto; /* если не влезает – появится скролл */
+}
+
+.item-blog__text .spoiler-btn {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
