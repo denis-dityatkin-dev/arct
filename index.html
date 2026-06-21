@@ -33,7 +33,7 @@
 									<a data-goto=".portfolio" href="#" class="menu__link">Portfolio</a>
 								</li>
 								<li class="menu__item">
-									<a data-goto=".contact" href="#" class="menu__link">Contact</a>
+									<a data-goto=".contacts" href="#" class="menu__link">Contact</a>
 								</li>
 							</ul>
 						</nav>
@@ -466,6 +466,42 @@
 					</div>
 				</div>
 			</section>
+			<section class="contacts">
+				<div class="contacts__container">
+					<div class="contacts__content">
+						<h2 class="contacts__title title">contact me</h2>
+						<div class="contacts__text">
+							<p>Get in touch by staying connected with us. If you have any question about our process or company? Let us know how we can help. Feel free to contact us.
+							</p>
+						</div>
+						<div class="contacts__form form">
+							<form action="#" id="form" class="form__body">
+                <div class="form__item">
+                    <input id="formName" type="text" placeholder="your first name*" name="name" class="form__input _req">
+                </div>
+                <div class="form__item">
+                    <input id="formName" type="text" placeholder="your last name*" name="name" class="form__input _req">
+                </div>
+                <div class="form__item">
+                    <input id="formEmail" type="text" placeholder="your email address*" name="name" class="form__input _req _email">
+                </div>
+                <div class="form__item">
+                    <input id="formNumber" type="text" placeholder="your phone number" name="name" class="form__input _req ">
+                </div>
+								<div class="form__item form__area">
+									<textarea name="message" id="formMessage" placeholder="your message*" class="form__input  _req"></textarea>
+								 </div>
+                   <button type="submit" class="form__button button">submit</button>
+            </form>
+						</div>
+					</div>
+					<div class="contacts__media">
+						<picture class="contacts__picture">
+							<img src="./images/contacts/contacts.jpg" alt="contacts-hero" class="contacts__image">
+						</picture>
+					</div>
+					</div>
+			</section>
 		</main>
 		<footer class="footer"></footer>
 	</div>
@@ -479,6 +515,7 @@
 	<script src="js/filter.js"></script>
 	<script src="js/gallery.js"></script>
 	<script src="js/show-more.js"></script>
+	<script src="js/forms.js"></script>
 	<!-- <script src="js/components/anim.js"></script> -->
 </body>
 </html>

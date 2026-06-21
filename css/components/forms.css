@@ -1,4 +1,4 @@
-body {
+/* body {
   height: 100%;
   line-height: 1;
   font-size: 14px;
@@ -53,19 +53,19 @@ visibility: visible;
   width: 100%;
   font-size: 18px;
   transition: box-shadow 0.5s ease 0s;
-}
+} */
 .form__input:focus{
   box-shadow: 0 0 15px rgb(17, 226, 157);
 }
 .form__input._error{
   box-shadow: 0 0 15px rgb(226, 17, 17);
 }
-textarea.form__input {
+/* textarea.form__input {
   min-height: 120px;
   resize: vertical;
   padding: 20px;
-}
-.options {
+} */
+/* .options {
   padding-top: 10px;
 }
 .options__item {
@@ -146,8 +146,8 @@ textarea.form__input {
   max-width: 100%;
 }
 .checkbox {
-}
-.checkbox._error .checkbox__label::before{
+} */
+/* .checkbox._error .checkbox__label::before{
   box-shadow: 0 0 15px rgb(226, 17, 17);
 }
 .checkbox__input {
@@ -184,9 +184,9 @@ textarea.form__input {
   background-color: rgb(17, 226, 157);
   border-radius: 4px;
   transform: scale(0);
-}
+} */
 
-.checkbox__label a {
+/* .checkbox__label a {
   color: rgb(17, 226, 157);
 }
 .form__button {
@@ -214,4 +214,4 @@ textarea.form__input {
 .form__button:active{
   top: 3px;
   box-shadow: 0 2px 0 rgb(3, 46, 32);
-}
+} */
