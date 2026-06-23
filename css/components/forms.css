@@ -55,7 +55,7 @@ visibility: visible;
   transition: box-shadow 0.5s ease 0s;
 } */
 .form__input:focus{
-  box-shadow: 0 0 15px rgb(17, 226, 157);
+  box-shadow: 0 0 15px #5b5b5b;
 }
 .form__input._error{
   box-shadow: 0 0 15px rgb(226, 17, 17);

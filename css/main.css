@@ -961,7 +961,7 @@ body {
   padding-bottom: calc(30px + 57 * ((100vw - 320px) / 1600));
   padding-inline: calc(10px + 120 * ((100vw - 320px) / 1600));
   margin-top: calc(0px + 128 * ((100vw - 320px) / 1600));
-  margin-bottom: calc(0px + 87 * ((100vw - 320px) / 1600));
+  position: relative;
 }
 @media (min-width: 61.9988rem) {
   .contacts__content {
@@ -994,7 +994,7 @@ body {
 @media (min-width: 61.9988rem) {
   .contacts__picture {
     display: block;
-    margin-right: -20%;
+    margin-left: -20%;
   }
 }
 .contacts__image {
@@ -1008,30 +1008,21 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
+.form__label {
+  font-style: italic;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  color: var(--text-form);
+  padding-left: 0.3125rem;
+}
 .form__input {
-  padding-bottom: 0.5rem;
-  padding-top: calc(30px + 53 * ((100vw - 320px) / 1600));
   border-bottom: 0.0625rem solid var(--text-form);
 }
-.form__input::-moz-placeholder {
-  font-style: italic;
-  letter-spacing: 0.02em;
-  text-transform: capitalize;
-  color: var(--text-form);
-}
-.form__input:-ms-input-placeholder {
-  font-style: italic;
-  letter-spacing: 0.02em;
-  text-transform: capitalize;
-  color: var(--text-form);
-}
-.form__input::placeholder {
-  font-style: italic;
-  letter-spacing: 0.02em;
-  text-transform: capitalize;
-  color: var(--text-form);
+.form__area {
+  grid-column: 1/-1;
 }
 .form__button {
+  grid-column: 1/-1;
   background-color: var(--text-dark);
   color: var(--background-item);
   transform: all 0.5s;

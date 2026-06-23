@@ -1170,7 +1170,7 @@ body {
 		@include adaptive-value("padding-bottom", 87, 30, 0);
 		@include adaptive-value("padding-inline", 130, 10, 0);
 		@include adaptive-value("margin-top", 128, 0, 0);
-		@include adaptive-value("margin-bottom", 87, 0, 0);
+		position: relative;
 	}
 
 	&__title {
@@ -1202,7 +1202,7 @@ body {
 
 		@media (min-width: 61.9988rem) {
 			display: block;
-			margin-right: -20%;
+			margin-left: -20%;
 		}
 	}
 	&__image {
@@ -1219,24 +1219,30 @@ body {
 	}
 
 	&__item {
+		// &:not(:last-child) {
+		// 	margin-bottom: 10px;
+		// }
 	}
-
+	&__label {
+		font-style: italic;
+		letter-spacing: 0.02em;
+		text-transform: capitalize;
+		color: var(--text-form);
+		padding-left: 0.3125rem;
+		
+	}
 	&__input {
-		&::placeholder {
-			font-style: italic;
-			letter-spacing: 0.02em;
-			text-transform: capitalize;
-			color: var(--text-form);
-		}
-		padding-bottom: 0.5rem;
-		@include adaptive-value("padding-top", 83, 30, 0);
 		border-bottom: 0.0625rem solid var(--text-form);
+		&::placeholder {
+		}
+
+	
 	}
 	&__area {
-
+		grid-column: 1 / -1; // растягиваем на всю ширину
 	}
 	&__button {
-
+		grid-column: 1 / -1; // растягиваем на всю ширину
 		background-color: var(--text-dark);
 		color: var(--background-item);
 		transform: all 0.5s;

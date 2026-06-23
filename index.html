@@ -474,26 +474,36 @@
 							<p>Get in touch by staying connected with us. If you have any question about our process or company? Let us know how we can help. Feel free to contact us.
 							</p>
 						</div>
+						<!-- Контейнер формы -->
 						<div class="contacts__form form">
-							<form action="#" id="form" class="form__body">
-                <div class="form__item">
-                    <input id="formName" type="text" placeholder="your first name*" name="name" class="form__input _req">
-                </div>
-                <div class="form__item">
-                    <input id="formName" type="text" placeholder="your last name*" name="name" class="form__input _req">
-                </div>
-                <div class="form__item">
-                    <input id="formEmail" type="text" placeholder="your email address*" name="name" class="form__input _req _email">
-                </div>
-                <div class="form__item">
-                    <input id="formNumber" type="text" placeholder="your phone number" name="name" class="form__input _req ">
-                </div>
-								<div class="form__item form__area">
-									<textarea name="message" id="formMessage" placeholder="your message*" class="form__input  _req"></textarea>
-								 </div>
-                   <button type="submit" class="form__button button">submit</button>
-            </form>
-						</div>
+							<form id="form" action="https://api.web3forms.com/submit" method="POST" class="form__body">
+									<div class="form__item">
+										<label for="firstname" class="form__label">your first name*</label>
+										<input autocomplete="off" id="firstname" type="text" placeholder="" name="firstname" class="form__input _req">
+									</div>
+									<div class="form__item">
+										<label for="lastname" class="form__label">your last name*</label>
+										<input autocomplete="off" id="lastname" type="text" placeholder="" name="lastname" class="form__input _req">
+									</div>
+									<div class="form__item">
+										<label for="email" class="form__label">your email address*</label>
+										<input autocomplete="off" id="email" type="email" placeholder="" name="email" class="form__input _req _email">
+									</div>
+									<div class="form__item">
+										<label for="phone" class="form__label">your phone number</label>
+										<input autocomplete="off" id="phone" type="tel" placeholder="" name="phone" class="form__input">
+									</div>
+									<div class="form__item form__area">
+										<label for="message" class="form__label">your message*</label>
+										<textarea name="message" id="message" placeholder="" class="form__input _req"></textarea>
+									</div>
+									<button type="submit" class="form__button button">submit</button>
+										<!-- Скрытые поля для web3forms -->
+									<input type="hidden" name="access_key" value="5cadd7bf-4130-4122-a875-c67601816d4a">
+									<input type="hidden" name="to" value="den04101990@gmail.com">
+									<input type="hidden" name="subject" value="Новое сообщение с сайта">
+							</form>
+					</div>
 					</div>
 					<div class="contacts__media">
 						<picture class="contacts__picture">
