@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', function () {
 			const originalText = submitButton.textContent;
 
 			// Получаем значения
-			const firstName = formData.get('first_name')?.trim();
-			const lastName = formData.get('last_name')?.trim();
+			const firstName = formData.get('firstname')?.trim();
+			const lastName = formData.get('lastname')?.trim();
 			const email = formData.get('email')?.trim();
 			const message = formData.get('message')?.trim();
 			const phone = formData.get('phone')?.trim(); // необязательное

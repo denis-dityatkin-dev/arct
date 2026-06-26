@@ -1156,6 +1156,7 @@ body {
 		display: flex;
 		@media (max-width: 61.9988rem) {
 			flex-direction: column-reverse;
+			margin-inline: -0.9375rem;
 		}
 	}
 
@@ -1215,34 +1216,56 @@ body {
 .form {
 	&__body {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		@include adaptive-value("gap", 34, 20, 0);
+		@media (min-width: 61.9988rem) {
+			grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+		}
 	}
 
 	&__item {
+		// flex: 1 1 100%;
+		// display: grid;
+
 		// &:not(:last-child) {
 		// 	margin-bottom: 10px;
 		// }
 	}
 	&__label {
+	}
+	&__input {
+		background-color: var(--background-item-2);
+		border-bottom: 0.0625rem solid var(--text-form);
+		padding-bottom: 0.3125rem;
+
 		font-style: italic;
 		letter-spacing: 0.02em;
 		text-transform: capitalize;
 		color: var(--text-form);
-		padding-left: 0.3125rem;
-		
-	}
-	&__input {
-		border-bottom: 0.0625rem solid var(--text-form);
-		&::placeholder {
-		}
+		width: 100%;
 
-	
+		&::placeholder {
+			font-style: italic;
+			letter-spacing: 0.02em;
+			text-transform: capitalize;
+			color: var(--text-form);
+		}
 	}
 	&__area {
-		grid-column: 1 / -1; // растягиваем на всю ширину
+		@media (min-width: 61.9988rem) {
+			grid-column: span 2;
+		}
+
+		textarea {
+			width: 100%;
+			padding-top: 5px; // ← смещение вниз
+			resize: vertical;
+		}
 	}
 	&__button {
-		grid-column: 1 / -1; // растягиваем на всю ширину
+		// flex: 1 1 100%;
+		// @media (min-width: 61.9988rem) {
+		// 	flex: 0 1 165px;
+		// }
 		background-color: var(--text-dark);
 		color: var(--background-item);
 		transform: all 0.5s;
