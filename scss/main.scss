@@ -1220,6 +1220,9 @@ body {
 		@media (min-width: 61.9988rem) {
 			grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 		}
+		&:not(:last-child){
+			@include adaptive-value("margin-bottom", 80, 20, 0);
+		}
 	}
 
 	&__item {
@@ -1262,16 +1265,16 @@ body {
 		}
 	}
 	&__button {
-		// flex: 1 1 100%;
-		// @media (min-width: 61.9988rem) {
-		// 	flex: 0 1 165px;
-		// }
 		background-color: var(--text-dark);
 		color: var(--background-item);
 		transform: all 0.5s;
+		width: 10.3125rem;
 		&:hover {
 			color: var(--text-dark);
 			background-color: var(--background-item);
+		}
+		@media (max-width: 47.9988rem) {
+			width: 100%;
 		}
 	}
 }

@@ -1014,6 +1014,9 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
+.form__body:not(:last-child) {
+  margin-bottom: calc(20px + 60 * ((100vw - 320px) / 1600));
+}
 .form__input {
   background-color: var(--background-item-2);
   border-bottom: 0.0625rem solid var(--text-form);
@@ -1056,8 +1059,14 @@ body {
   background-color: var(--text-dark);
   color: var(--background-item);
   transform: all 0.5s;
+  width: 10.3125rem;
 }
 .form__button:hover {
   color: var(--text-dark);
   background-color: var(--background-item);
+}
+@media (max-width: 47.9988rem) {
+  .form__button {
+    width: 100%;
+  }
 }
